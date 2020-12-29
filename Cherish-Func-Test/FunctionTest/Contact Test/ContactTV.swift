@@ -25,6 +25,15 @@ class ContactTV: UITableViewController {
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectPhoneNumber = contacts[indexPath.row].telephone
+        
+        if let url = NSURL(string: "tel://" + "\(selectPhoneNumber)"),
+                   UIApplication.shared.canOpenURL(url as URL) {
+                    UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+                }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /// 2.
         /// return the number of rows
