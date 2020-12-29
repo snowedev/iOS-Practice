@@ -44,18 +44,16 @@ class ViewController: UIViewController {
     @IBAction func showCard(_ sender: Any) {
         if status == true{
             status = false
+            self.calendar.setScope(.week, animated: true)
             self.eventCollectionView.reloadData()
             
         }else{
             status = true
+            self.calendar.setScope(.month, animated: true)
             self.eventCollectionView.reloadData()
         }
-        showCardBtn.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
     }
     
-    @objc func handleExpandClose(){
-        
-    }
     func cal_Style() {
         /// 캘린더 헤더 부분
         calendar.headerHeight = 50
@@ -122,16 +120,6 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
     {
         return 10
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(eventCollectionView.contentOffset.y)
-        if eventCollectionView.contentOffset.y > 0 {
-            self.calendar.setScope(.week, animated: true)
-        }else{
-            self.calendar.setScope(.month, animated: true)
-        }
-        
     }
 }
 
