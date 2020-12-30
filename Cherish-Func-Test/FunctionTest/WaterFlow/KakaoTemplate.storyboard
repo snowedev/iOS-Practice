@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Kakao TemplateVC-->
+        <scene sceneID="WFT-jW-haW">
+            <objects>
+                <viewController storyboardIdentifier="KakaoTemplateVC" id="fGh-8E-61g" customClass="KakaoTemplateVC" customModule="FunctionTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Z2-MJ-uC2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezX-UG-Aot">
+                                <rect key="frame" x="49" y="353" width="316" height="200"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bje-60-bos">
+                                        <rect key="frame" x="20" y="20" width="276" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="wEq-Is-Y3D"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Smf-5z-Hxi">
+                                        <rect key="frame" x="20" y="130" width="276" height="33"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="전송하기">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="kakaoSend:" destination="fGh-8E-61g" eventType="touchUpInside" id="f5W-o6-DT1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="316" id="5bj-Rn-biV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bje-60-bos" secondAttribute="trailing" constant="20" id="JJG-ei-aHe"/>
+                                    <constraint firstItem="Smf-5z-Hxi" firstAttribute="leading" secondItem="Bje-60-bos" secondAttribute="leading" id="YS4-vY-1fc"/>
+                                    <constraint firstItem="Smf-5z-Hxi" firstAttribute="trailing" secondItem="Bje-60-bos" secondAttribute="trailing" id="eKP-D5-lcs"/>
+                                    <constraint firstItem="Bje-60-bos" firstAttribute="leading" secondItem="ezX-UG-Aot" secondAttribute="leading" constant="20" id="kVT-XZ-LOS"/>
+                                    <constraint firstAttribute="height" constant="200" id="mLL-vg-nYE"/>
+                                    <constraint firstItem="Bje-60-bos" firstAttribute="top" secondItem="ezX-UG-Aot" secondAttribute="top" constant="20" id="qxa-fd-2WT"/>
+                                    <constraint firstItem="Smf-5z-Hxi" firstAttribute="top" secondItem="Bje-60-bos" secondAttribute="bottom" constant="30" id="wQ2-dP-Dva"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iua-xR-EUh"/>
+                        <color key="backgroundColor" red="0.86908628890564399" green="0.86488780441817714" blue="0.87328477339311084" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="ezX-UG-Aot" firstAttribute="centerY" secondItem="iua-xR-EUh" secondAttribute="centerY" id="4ce-I1-7c8"/>
+                            <constraint firstItem="ezX-UG-Aot" firstAttribute="centerX" secondItem="iua-xR-EUh" secondAttribute="centerX" id="EPQ-Kc-QbB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="kakaoSendBtn" destination="Smf-5z-Hxi" id="z6D-ya-Omu"/>
+                        <outlet property="kakaoTemplateView" destination="ezX-UG-Aot" id="5lM-f7-DqT"/>
+                        <outlet property="messageTextField" destination="Bje-60-bos" id="fnm-Qi-klA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G3k-79-tgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="224.63768115942031" y="66.964285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

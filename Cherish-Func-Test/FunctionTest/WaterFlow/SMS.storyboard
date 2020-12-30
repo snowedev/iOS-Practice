@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SMSVC-->
+        <scene sceneID="x7o-kl-sbS">
+            <objects>
+                <viewController storyboardIdentifier="SMSVC" id="WI3-jJ-cEl" customClass="SMSVC" customModule="FunctionTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TTP-v9-LI5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twn-ZB-Eba">
+                                <rect key="frame" x="49" y="353" width="316" height="200"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uWe-XW-nK9">
+                                        <rect key="frame" x="20" y="20" width="276" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="7CR-Tu-qal"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RW4-xG-hvi">
+                                        <rect key="frame" x="20" y="130" width="276" height="33"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="전송하기"/>
+                                        <connections>
+                                            <action selector="smsSending:" destination="WI3-jJ-cEl" eventType="touchUpInside" id="9dv-gL-eII"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="uWe-XW-nK9" firstAttribute="leading" secondItem="twn-ZB-Eba" secondAttribute="leading" constant="20" id="1NA-uP-OMy"/>
+                                    <constraint firstItem="uWe-XW-nK9" firstAttribute="top" secondItem="twn-ZB-Eba" secondAttribute="top" constant="20" id="2RL-id-Xdj"/>
+                                    <constraint firstAttribute="trailing" secondItem="uWe-XW-nK9" secondAttribute="trailing" constant="20" id="3qt-OY-K5s"/>
+                                    <constraint firstAttribute="height" constant="200" id="NRu-BT-bbX"/>
+                                    <constraint firstAttribute="width" constant="316" id="Oo2-tL-fgw"/>
+                                    <constraint firstItem="RW4-xG-hvi" firstAttribute="leading" secondItem="uWe-XW-nK9" secondAttribute="leading" id="R8M-Uq-PJ1"/>
+                                    <constraint firstItem="RW4-xG-hvi" firstAttribute="trailing" secondItem="uWe-XW-nK9" secondAttribute="trailing" id="nsV-9y-9KR"/>
+                                    <constraint firstItem="RW4-xG-hvi" firstAttribute="top" secondItem="uWe-XW-nK9" secondAttribute="bottom" constant="30" id="sJK-w0-eON"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sO8-Tf-7nv"/>
+                        <color key="backgroundColor" red="0.86908628890564399" green="0.86488780441817714" blue="0.87328477339311084" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="twn-ZB-Eba" firstAttribute="centerY" secondItem="sO8-Tf-7nv" secondAttribute="centerY" id="3v6-sJ-9ZS"/>
+                            <constraint firstItem="twn-ZB-Eba" firstAttribute="centerX" secondItem="sO8-Tf-7nv" secondAttribute="centerX" id="dQ3-h7-VxB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageTextField" destination="uWe-XW-nK9" id="wUM-27-WZl"/>
+                        <outlet property="smsSendBtn" destination="RW4-xG-hvi" id="mRH-v6-Svc"/>
+                        <outlet property="smsView" destination="twn-ZB-Eba" id="U6p-fr-e7U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fRq-uh-U0x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-94" y="67"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

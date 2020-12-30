@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MessageUI
 
 class WaterFlowPopUpVC: UIViewController {
     var ct : FetchedContact?
@@ -36,40 +35,31 @@ class WaterFlowPopUpVC: UIViewController {
         }
     }
     @IBAction func smsing(_ sender: Any) {
-        let messageComposer = MFMessageComposeViewController()
-        messageComposer.messageComposeDelegate = self
-        if MFMessageComposeViewController.canSendText(){
-            messageComposer.recipients = ["\(ct?.telephone ?? "0")"]
-            messageComposer.body = "디폴트 메시지도 설정할 수 있습니다."
-            messageComposer.modalPresentationStyle = .currentContext
-//            messageComposer.modalTransitionStyle = .crossDissolve
-            self.present(messageComposer, animated: true, completion: nil)
+        guard let pvc = self.presentingViewController else {return}
+        self.dismiss(animated: true) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "SMS", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "SMSVC") as? SMSVC{
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalTransitionStyle = .crossDissolve
+                vc.sms_ct = self.ct
+                pvc.present(vc, animated: true, completion: nil)
+            }
         }
+        
     }
     
     @IBAction func kakaotalking(_ sender: Any) {
-        print("no Yet")
-    }
-    
-}
-
-
-extension WaterFlowPopUpVC: MFMessageComposeViewControllerDelegate{
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        switch result {
-        case MessageComposeResult.sent:
-            print("전송 완료")
-            break
-        case MessageComposeResult.cancelled:
-            print("취소")
-            break
-        case MessageComposeResult.failed:
-            print("전송 실패")
-            break
-        @unknown default:
-            fatalError()
+        
+        guard let pvc = self.presentingViewController else {return}
+        
+        self.dismiss(animated: true) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "KakaoTemplate", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "KakaoTemplateVC") as? KakaoTemplateVC{
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalTransitionStyle = .crossDissolve
+                pvc.present(vc, animated: true, completion: nil)
+            }
         }
-        controller.dismiss(animated: true, completion: nil)
     }
 }
 
