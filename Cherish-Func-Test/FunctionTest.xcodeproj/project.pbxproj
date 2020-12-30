@@ -145,15 +145,23 @@
 		548DF0B0259C369E0081FCD1 /* WaterFlow */ = {
 			isa = PBXGroup;
 			children = (
+				548DF105259CF5090081FCD1 /* Trash */,
 				548DF0B1259C36F40081FCD1 /* WaterFlow.storyboard */,
-				548DF0E6259CA1C10081FCD1 /* SMS.storyboard */,
-				548DF0E9259CA1CF0081FCD1 /* SMSVC.swift */,
-				548DF0D4259C78C20081FCD1 /* KakaoTemplate.storyboard */,
-				548DF0D7259C78E50081FCD1 /* KakaoTemplateVC.swift */,
 				548DF0B4259C37E50081FCD1 /* WaterFlowVC.swift */,
 				548DF0B7259C37FB0081FCD1 /* WaterFlowPopUpVC.swift */,
 			);
 			path = WaterFlow;
+			sourceTree = "<group>";
+		};
+		548DF105259CF5090081FCD1 /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				548DF0E6259CA1C10081FCD1 /* SMS.storyboard */,
+				548DF0E9259CA1CF0081FCD1 /* SMSVC.swift */,
+				548DF0D4259C78C20081FCD1 /* KakaoTemplate.storyboard */,
+				548DF0D7259C78E50081FCD1 /* KakaoTemplateVC.swift */,
+			);
+			path = Trash;
 			sourceTree = "<group>";
 		};
 		70D7A52E1C723F97C075C240 /* Pods */ = {
