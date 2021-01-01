@@ -11,6 +11,7 @@ import MessageUI
 class WaterFlowPopUpVC: UIViewController {
     var ct : FetchedContact?
     
+    //MARK: -@IBOutlet
     @IBOutlet weak var popupView: UIView!{
         didSet{
             popupView.layer.cornerRadius = 20
@@ -27,20 +28,37 @@ class WaterFlowPopUpVC: UIViewController {
     @IBOutlet weak var smsBtn: UIButton!
     @IBOutlet weak var kakaoBtn: UIButton!
     
+    //MARK: -ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        notificationCenter()
     }
     
+    //MARK: -Ect Func
+    func notificationCenter(){
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+    }
+    
+    @objc func appMovedToBackground() {
+        print("App moved to background!")
+    }
+    
+    //MARK: -@IBAction
     @IBAction func backToFlow(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    /// Contact way1: Call
     @IBAction func calling(_ sender: Any) {
         
         if let url = NSURL(string: "tel://" + "\(ct?.telephone ?? "0")"),
            UIApplication.shared.canOpenURL(url as URL) {
+            /// 연락 수단 선택 창 dismiss
+            self.dismiss(animated: true, completion: nil)
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
         }
     }
+    /// Contact way2: Message
     @IBAction func smsing(_ sender: Any) {
         //        guard let pvc = self.presentingViewController else {return}
         //        self.dismiss(animated: true) {
@@ -59,18 +77,18 @@ class WaterFlowPopUpVC: UIViewController {
             messageComposer.body = ""
             messageComposer.modalPresentationStyle = .currentContext
             //messageComposer.modalTransitionStyle = .crossDissolve
-            self.present(messageComposer, animated: true, completion: nil)
+            self.present(messageComposer, animated: true)
         }
-        
     }
     
+    /// Contact way3: Kakao Talk
     @IBAction func kakaotalking(_ sender: Any) {
         let kakaoTalk = "kakaotalk://"
-        
         let kakaoTalkURL = NSURL(string: kakaoTalk)
         
         if UIApplication.shared.canOpenURL(kakaoTalkURL! as URL) {
             UIApplication.shared.openURL(kakaoTalkURL! as URL)
+            /// 연락 수단 선택 창 dismiss
             self.dismiss(animated: true, completion: nil)
         }
         else {
@@ -78,19 +96,11 @@ class WaterFlowPopUpVC: UIViewController {
         }
     }
 }
-//        guard let pvc = self.presentingViewController else {return}
-//        
-//        self.dismiss(animated: true) {
-//            let storyBoard: UIStoryboard = UIStoryboard(name: "KakaoTemplate", bundle: nil)
-//            if let vc = storyBoard.instantiateViewController(withIdentifier: "KakaoTemplateVC") as? KakaoTemplateVC{
-//                vc.modalPresentationStyle = .overCurrentContext
-//                vc.modalTransitionStyle = .crossDissolve
-//                pvc.present(vc, animated: true, completion: nil)
-//            }
-//        }
 
 
+//MARK: -Protocol Extension
 extension WaterFlowPopUpVC: MFMessageComposeViewControllerDelegate{
+    /// 메시지 전송 결과
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         switch result {
         case MessageComposeResult.sent:

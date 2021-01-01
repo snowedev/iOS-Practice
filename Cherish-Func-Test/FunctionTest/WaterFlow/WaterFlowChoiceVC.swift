@@ -9,6 +9,8 @@ import UIKit
 
 class WaterFlowChoiceVC: UIViewController {
     var b_ct: FetchedContact?
+    
+    //MARK: -@IBOutlet
     @IBOutlet weak var choiceView: UIView!{
         didSet{
             choiceView.makeRounded(cornerRadius: 20.0)
@@ -24,15 +26,18 @@ class WaterFlowChoiceVC: UIViewController {
             laterBtn.makeRounded(cornerRadius: 20.0)
         }
     }
+    
+    //MARK: -viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
+    //MARK: -@IBAction
+    /// 뒤로가기 Action
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    ///물주기 Action
     @IBAction func goWater(_ sender: Any) {
         guard let pvc = self.presentingViewController else {return}
         
@@ -47,16 +52,7 @@ class WaterFlowChoiceVC: UIViewController {
         }
         
     }
+    ///미루기 Action
     @IBAction func goLater(_ sender: Any) {
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

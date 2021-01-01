@@ -8,6 +8,7 @@
 import UIKit
 import Contacts
 
+//MARK: -연락처 가져오기 구현부(메인 뷰컨)
 class WaterFlowVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -20,15 +21,7 @@ class WaterFlowVC: UIViewController {
         fetchContacts()
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func watering(_ sender: Any) {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "WaterFlow", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "WaterFlowPopUpVC") as! WaterFlowPopUpVC
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.modalTransitionStyle = .crossDissolve
-        self.present(vc, animated: true, completion: nil)
-    }
-    
+
     private func fetchContacts() {
         /// 1. The CNContactStore object contains the user’s contacts store database
         let store = CNContactStore()
@@ -54,9 +47,9 @@ class WaterFlowVC: UIViewController {
             }
         }
     }
-    
 }
 
+//MARK: -Protocol Extension
 extension WaterFlowVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         /// return the number of rows
@@ -66,7 +59,7 @@ extension WaterFlowVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        /// Configure the cell...
+        /// Configure the cell
         /// The name and telephone number at the current index of the contacts array is assigned to the text property of the textLabel and detailLabel property of the current cell.
         cell.textLabel?.text = contacts[indexPath.row].lastName + "" + contacts[indexPath.row].firstName
         cell.detailTextLabel?.text = contacts[indexPath.row].telephone
@@ -78,6 +71,7 @@ extension WaterFlowVC: UITableViewDelegate, UITableViewDataSource{
         let selectedPerson = contacts[indexPath.row]
         let storyBoard: UIStoryboard = UIStoryboard(name: "WaterFlowChoice", bundle: nil)
         
+        ///물줄지, 미룰지 선택하는 팝업 present
         if let vc = storyBoard.instantiateViewController(withIdentifier: "WaterFlowChoiceVC") as? WaterFlowChoiceVC{
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
