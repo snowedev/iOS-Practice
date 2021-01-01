@@ -11,7 +11,7 @@
         <!--ReviewVC-->
         <scene sceneID="N1M-dE-JS1">
             <objects>
-                <viewController id="UIt-fC-GgE" customClass="ReviewVC" customModule="FunctionTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReviewVC" id="UIt-fC-GgE" customClass="ReviewVC" customModule="FunctionTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UHA-4W-na2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

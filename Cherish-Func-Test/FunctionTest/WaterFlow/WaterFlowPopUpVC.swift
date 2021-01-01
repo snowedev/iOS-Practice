@@ -31,17 +31,6 @@ class WaterFlowPopUpVC: UIViewController {
     //MARK: -ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        notificationCenter()
-    }
-    
-    //MARK: -Ect Func
-    func notificationCenter(){
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-    }
-    
-    @objc func appMovedToBackground() {
-        print("App moved to background!")
     }
     
     //MARK: -@IBAction
@@ -50,12 +39,19 @@ class WaterFlowPopUpVC: UIViewController {
     }
     /// Contact way1: Call
     @IBAction func calling(_ sender: Any) {
-        
+        guard let pvc = self.presentingViewController else {return}
         if let url = NSURL(string: "tel://" + "\(ct?.telephone ?? "0")"),
            UIApplication.shared.canOpenURL(url as URL) {
             /// 연락 수단 선택 창 dismiss
-            self.dismiss(animated: true, completion: nil)
-            UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            self.dismiss(animated: true){
+                UIApplication.shared.open(url as URL, options: [:]){_ in
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+                    if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                        vc.modalPresentationStyle = .fullScreen
+                        pvc.present(vc, animated: true, completion: nil)
+                    }
+                }
+            }
         }
     }
     /// Contact way2: Message
@@ -85,11 +81,19 @@ class WaterFlowPopUpVC: UIViewController {
     @IBAction func kakaotalking(_ sender: Any) {
         let kakaoTalk = "kakaotalk://"
         let kakaoTalkURL = NSURL(string: kakaoTalk)
+        guard let pvc = self.presentingViewController else {return}
         
         if UIApplication.shared.canOpenURL(kakaoTalkURL! as URL) {
-            UIApplication.shared.openURL(kakaoTalkURL! as URL)
             /// 연락 수단 선택 창 dismiss
-            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true){
+                UIApplication.shared.open(kakaoTalkURL! as URL){_ in
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Review", bundle: nil)
+                    if let vc = storyBoard.instantiateViewController(withIdentifier: "ReviewVC") as? ReviewVC{
+                        vc.modalPresentationStyle = .fullScreen
+                        pvc.present(vc, animated: true, completion: nil)
+                    }
+                }
+            }
         }
         else {
             print("No kakaostory installed.")
