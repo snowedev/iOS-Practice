@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Water Flow ChoiceVC-->
+        <scene sceneID="ko5-ix-8Y5">
+            <objects>
+                <viewController storyboardIdentifier="WaterFlowChoiceVC" id="ljW-65-Y9X" customClass="WaterFlowChoiceVC" customModule="FunctionTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FTo-bJ-uE5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="509-Nk-6Nu">
+                                <rect key="frame" x="49" y="278" width="316" height="350"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wth-Qx-5s3">
+                                        <rect key="frame" x="283.5" y="15" width="17.5" height="22"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="back:" destination="ljW-65-Y9X" eventType="touchUpInside" id="ZYW-VV-qqB"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="171-vI-0eX">
+                                        <rect key="frame" x="108" y="40" width="100" height="70.5"/>
+                                        <subviews>
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0i-bN-8wD">
+                                                <rect key="frame" x="37.5" y="0.0" width="25" height="24"/>
+                                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                                <state key="normal" image="face.smiling.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물을 주세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGs-AZ-gcj">
+                                                <rect key="frame" x="0.0" y="44" width="100" height="26.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="궁시렁 궁시렁 궁시렁 궁시렁 궁시렁굿이렁" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NgZ-xE-1ga">
+                                        <rect key="frame" x="87.5" y="120.5" width="141.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IPI-tx-cbE">
+                                        <rect key="frame" x="20" y="201.5" width="276" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rji-az-Ah0">
+                                                <rect key="frame" x="0.0" y="0.0" width="276" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="4DZ-1X-R82"/>
+                                                </constraints>
+                                                <state key="normal" title="물주기">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="goWater:" destination="ljW-65-Y9X" eventType="touchUpInside" id="Pbh-t4-gBH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gew-mP-Qle">
+                                                <rect key="frame" x="0.0" y="50" width="276" height="50"/>
+                                                <state key="normal" title="다음에 할게요">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="goLater:" destination="ljW-65-Y9X" eventType="touchUpInside" id="fBP-Wt-T94"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="gew-mP-Qle" firstAttribute="height" secondItem="rji-az-Ah0" secondAttribute="height" id="cH0-gA-qpV"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="wth-Qx-5s3" firstAttribute="top" secondItem="509-Nk-6Nu" secondAttribute="top" constant="15" id="Bf6-9B-SRu"/>
+                                    <constraint firstItem="NgZ-xE-1ga" firstAttribute="centerX" secondItem="509-Nk-6Nu" secondAttribute="centerX" id="FhW-Br-atJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="wth-Qx-5s3" secondAttribute="trailing" constant="15" id="JBT-lq-8lO"/>
+                                    <constraint firstAttribute="width" constant="316" id="JP0-tA-YTH"/>
+                                    <constraint firstItem="NgZ-xE-1ga" firstAttribute="top" secondItem="171-vI-0eX" secondAttribute="bottom" constant="10" id="Lse-DO-mwQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="IPI-tx-cbE" secondAttribute="trailing" constant="20" id="TgL-DC-IQX"/>
+                                    <constraint firstAttribute="width" secondItem="509-Nk-6Nu" secondAttribute="height" multiplier="158:175" id="Um6-n5-OUP"/>
+                                    <constraint firstItem="IPI-tx-cbE" firstAttribute="top" secondItem="NgZ-xE-1ga" secondAttribute="bottom" constant="40" id="eBg-58-ag6"/>
+                                    <constraint firstItem="IPI-tx-cbE" firstAttribute="centerX" secondItem="509-Nk-6Nu" secondAttribute="centerX" id="eMr-6X-yGD"/>
+                                    <constraint firstItem="IPI-tx-cbE" firstAttribute="leading" secondItem="509-Nk-6Nu" secondAttribute="leading" constant="20" id="ghD-0d-snf"/>
+                                    <constraint firstItem="171-vI-0eX" firstAttribute="centerX" secondItem="509-Nk-6Nu" secondAttribute="centerX" id="kz7-yj-tKJ"/>
+                                    <constraint firstItem="171-vI-0eX" firstAttribute="top" secondItem="509-Nk-6Nu" secondAttribute="top" constant="40" id="zJW-nV-nNr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pD9-1g-ryp"/>
+                        <color key="backgroundColor" red="0.33851735241763248" green="0.33688200288904485" blue="0.34015270194622005" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="509-Nk-6Nu" firstAttribute="centerY" secondItem="pD9-1g-ryp" secondAttribute="centerY" id="N1q-eG-Vlu"/>
+                            <constraint firstItem="509-Nk-6Nu" firstAttribute="centerX" secondItem="pD9-1g-ryp" secondAttribute="centerX" id="ZLO-tF-02D"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="choiceView" destination="509-Nk-6Nu" id="E4i-GQ-UbP"/>
+                        <outlet property="laterBtn" destination="gew-mP-Qle" id="MoL-nV-bU9"/>
+                        <outlet property="waterBtn" destination="rji-az-Ah0" id="Mbn-pU-mxe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qVn-X6-ypx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114" y="73"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="face.smiling.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

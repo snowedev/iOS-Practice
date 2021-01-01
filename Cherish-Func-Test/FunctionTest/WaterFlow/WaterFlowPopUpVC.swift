@@ -70,8 +70,8 @@ class WaterFlowPopUpVC: UIViewController {
         let kakaoTalkURL = NSURL(string: kakaoTalk)
         
         if UIApplication.shared.canOpenURL(kakaoTalkURL! as URL) {
-            
             UIApplication.shared.openURL(kakaoTalkURL! as URL)
+            self.dismiss(animated: true, completion: nil)
         }
         else {
             print("No kakaostory installed.")

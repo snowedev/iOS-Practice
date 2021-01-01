@@ -76,12 +76,12 @@ extension WaterFlowVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedPerson = contacts[indexPath.row]
-        let storyBoard: UIStoryboard = UIStoryboard(name: "WaterFlow", bundle: nil)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "WaterFlowChoice", bundle: nil)
         
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "WaterFlowPopUpVC") as? WaterFlowPopUpVC{
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "WaterFlowChoiceVC") as? WaterFlowChoiceVC{
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
-            vc.ct = selectedPerson
+            vc.b_ct = selectedPerson
             self.present(vc, animated: true, completion: nil)
         }
     }
