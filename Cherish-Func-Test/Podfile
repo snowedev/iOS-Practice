@@ -7,5 +7,4 @@ target 'FunctionTest' do
 
   # Pods for FunctionTest
 pod 'FSCalendar'
-pod 'KakaoSDK'
 end

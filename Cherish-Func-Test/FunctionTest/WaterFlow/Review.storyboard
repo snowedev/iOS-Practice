@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,6 +53,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPG-gd-XwN">
                                 <rect key="frame" x="301.66666666666669" y="223" width="43.333333333333314" height="20.333333333333343"/>
@@ -99,12 +103,34 @@
                                     <constraint firstItem="Yyc-PR-dIa" firstAttribute="height" secondItem="lGf-dV-PAe" secondAttribute="height" id="x9h-O2-F9o"/>
                                 </constraints>
                             </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a66-38-bSl">
+                                <rect key="frame" x="20" y="271" width="335" height="35"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="2e5-JF-fWu"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="M5N-6t-qD7">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BBL-Sq-cZt">
+                                        <rect key="frame" x="0.0" y="-46.666666666666664" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PQJ-fr-p9Q">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="012-up-zDW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lGf-dV-PAe" firstAttribute="trailing" secondItem="UfT-t2-3ML" secondAttribute="trailing" id="2tA-am-HNc"/>
-                            <constraint firstItem="UfT-t2-3ML" firstAttribute="top" secondItem="BhG-GC-A1Z" secondAttribute="bottom" constant="60" id="45R-bU-7Ue"/>
                             <constraint firstItem="BhG-GC-A1Z" firstAttribute="top" secondItem="mtK-xb-sTg" secondAttribute="bottom" constant="35" id="56n-pW-TfF"/>
                             <constraint firstItem="UfT-t2-3ML" firstAttribute="trailing" secondItem="BhG-GC-A1Z" secondAttribute="trailing" id="E2J-kI-4qk"/>
                             <constraint firstItem="012-up-zDW" firstAttribute="trailing" secondItem="BhG-GC-A1Z" secondAttribute="trailing" constant="20" id="GmG-UM-cs8"/>
@@ -113,15 +139,20 @@
                             <constraint firstItem="Ug8-Sw-hTT" firstAttribute="trailing" secondItem="UfT-t2-3ML" secondAttribute="trailing" constant="-10" id="NpM-Ga-7Hf"/>
                             <constraint firstItem="CPG-gd-XwN" firstAttribute="centerY" secondItem="BhG-GC-A1Z" secondAttribute="centerY" id="NuH-dM-1av"/>
                             <constraint firstItem="lGf-dV-PAe" firstAttribute="leading" secondItem="UfT-t2-3ML" secondAttribute="leading" id="Oll-3C-USf"/>
+                            <constraint firstItem="UfT-t2-3ML" firstAttribute="top" secondItem="a66-38-bSl" secondAttribute="bottom" constant="12" id="Uhj-8X-RcR"/>
                             <constraint firstItem="mtK-xb-sTg" firstAttribute="leading" secondItem="BhG-GC-A1Z" secondAttribute="leading" id="WtC-0K-iKd"/>
                             <constraint firstItem="Ug8-Sw-hTT" firstAttribute="bottom" secondItem="UfT-t2-3ML" secondAttribute="bottom" constant="-10" id="Yq3-mz-jW3"/>
                             <constraint firstItem="UfT-t2-3ML" firstAttribute="leading" secondItem="BhG-GC-A1Z" secondAttribute="leading" id="ZpV-pp-HZO"/>
+                            <constraint firstItem="a66-38-bSl" firstAttribute="leading" secondItem="BhG-GC-A1Z" secondAttribute="leading" id="dX5-co-yqM"/>
+                            <constraint firstItem="a66-38-bSl" firstAttribute="trailing" secondItem="BhG-GC-A1Z" secondAttribute="trailing" id="ghg-Ev-g76"/>
                             <constraint firstItem="mtK-xb-sTg" firstAttribute="top" secondItem="012-up-zDW" secondAttribute="top" constant="50" id="hfK-YU-76X"/>
                             <constraint firstItem="012-up-zDW" firstAttribute="bottom" secondItem="m7W-B4-QeQ" secondAttribute="bottom" constant="30" id="n6H-eu-7I6"/>
+                            <constraint firstItem="a66-38-bSl" firstAttribute="top" secondItem="BhG-GC-A1Z" secondAttribute="bottom" constant="13" id="pCO-zV-Ssd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="completeBtn" destination="lGf-dV-PAe" id="Gm4-n2-xcN"/>
+                        <outlet property="keywordCollectionView" destination="a66-38-bSl" id="EsA-a2-VxW"/>
                         <outlet property="keywordCountingLabel" destination="CPG-gd-XwN" id="rwi-5x-Jzm"/>
                         <outlet property="keywordTextField" destination="BhG-GC-A1Z" id="AN6-Yf-JMA"/>
                         <outlet property="laterBtn" destination="Yyc-PR-dIa" id="tZE-BG-Fzk"/>
@@ -131,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BE7-dG-A7g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-259.4202898550725" y="24.776785714285712"/>
+            <point key="canvasLocation" x="-260" y="24.384236453201972"/>
         </scene>
     </scenes>
     <resources>
