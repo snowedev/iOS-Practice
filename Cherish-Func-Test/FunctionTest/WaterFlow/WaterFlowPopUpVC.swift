@@ -36,12 +36,7 @@ class WaterFlowPopUpVC: UIViewController,CXCallObserverDelegate {
         super.viewDidLoad()
     }
     
-    //MARK: -@IBAction
-    @IBAction func backToFlow(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    /// Call Material
+    //MARK: - Call Material
     func showCallAlert() {
         guard let url = NSURL(string: "tel://" + "\(ct?.telephone ?? "0")"),
             UIApplication.shared.canOpenURL(url as URL) else {
@@ -62,29 +57,6 @@ class WaterFlowPopUpVC: UIViewController,CXCallObserverDelegate {
             }
         }
     }
-    /// Contact way1: Call
-    @IBAction func calling(_ sender: Any) {
-        showCallAlert()
-    }
-//        callObserver.setDelegate(self, queue: nil)
-//        didDetectOutgoingCall = false
-//
-//        //we only want to add the observer after the alert is displayed,
-//        //that's why we're using asyncAfter(deadline:)
-//        if let url = NSURL(string: "tel://" + "\(ct?.telephone ?? "0")"),
-//           UIApplication.shared.canOpenURL(url as URL) {
-//            /// 연락 수단 선택 창 dismiss
-//            self.dismiss(animated: true){
-//                UIApplication.shared.open(url as URL, options: [:]){ [weak self] success in
-//                    if success {
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-//                            self?.addNotifObserver()
-//                        }
-//                    }
-//                }
-//            }
-//        }
-    
     
     func addNotifObserver() {
         let selector = #selector(appDidBecomeActive)
@@ -112,6 +84,16 @@ class WaterFlowPopUpVC: UIViewController,CXCallObserverDelegate {
             }
             print("Call button pressed")
         }
+    }
+    
+    //MARK: -@IBAction
+    @IBAction func backToFlow(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    /// Contact way1: Call
+    @IBAction func calling(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+        showCallAlert()
     }
     
     /// Contact way2: Message

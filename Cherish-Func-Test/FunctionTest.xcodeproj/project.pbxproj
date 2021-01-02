@@ -32,6 +32,7 @@
 		548DF11B259EE8DA0081FCD1 /* Review.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 548DF11A259EE8DA0081FCD1 /* Review.storyboard */; };
 		548DF11E259EE8E50081FCD1 /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF11D259EE8E50081FCD1 /* ReviewVC.swift */; };
 		548DF123259EEB410081FCD1 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF122259EEB410081FCD1 /* UITextField+Extension.swift */; };
+		548DF12725A043550081FCD1 /* CustomUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DF12625A043540081FCD1 /* CustomUILabel.swift */; };
 		84DB4463CD9911F88999CDF6 /* Pods_FunctionTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AA1BBF8CD14FAA74DC7BDD /* Pods_FunctionTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		548DF11A259EE8DA0081FCD1 /* Review.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Review.storyboard; sourceTree = "<group>"; };
 		548DF11D259EE8E50081FCD1 /* ReviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		548DF122259EEB410081FCD1 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		548DF12625A043540081FCD1 /* CustomUILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUILabel.swift; sourceTree = "<group>"; };
 		9A9F745522090E6DBAF4DBF1 /* Pods-FunctionTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FunctionTest.release.xcconfig"; path = "Target Support Files/Pods-FunctionTest/Pods-FunctionTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 				548DF0B7259C37FB0081FCD1 /* WaterFlowPopUpVC.swift */,
 				548DF0B4259C37E50081FCD1 /* WaterFlowVC.swift */,
 				548DF105259CF5090081FCD1 /* Trash */,
+				548DF12625A043540081FCD1 /* CustomUILabel.swift */,
 			);
 			path = WaterFlow;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				548DF084259ADD600081FCD1 /* EventCVC.swift in Sources */,
 				548DF118259DC8E60081FCD1 /* WaterFlowChoiceVC.swift in Sources */,
 				548DF05A259A27A90081FCD1 /* AppDelegate.swift in Sources */,
+				548DF12725A043550081FCD1 /* CustomUILabel.swift in Sources */,
 				548DF0A6259B1DDF0081FCD1 /* ContactTV.swift in Sources */,
 				548DF0AA259B1F320081FCD1 /* FetchedContact.swift in Sources */,
 				548DF06F259A27EE0081FCD1 /* CircularProgressView.swift in Sources */,
