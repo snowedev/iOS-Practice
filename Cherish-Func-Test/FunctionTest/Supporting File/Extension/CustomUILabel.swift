@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//MARK: -자간
 open class CustomLabel : UILabel {
     @IBInspectable open var characterSpacing:CGFloat = 1 {
         didSet {

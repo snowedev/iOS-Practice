@@ -8,8 +8,6 @@
 import UIKit
 
 class ReviewVC: UIViewController,UITextFieldDelegate,UITextViewDelegate {
-    //    var keywordLength = 10 /// 키워드 최대 글자 수
-    //    var memoLength = 100 /// 메모 최대 글자 수
     var keyword = [String]() /// 키워드 배열
     
     //MARK: -@IBOutlet

@@ -54,5 +54,16 @@ class WaterFlowChoiceVC: UIViewController {
     }
     ///미루기 Action
     @IBAction func goLater(_ sender: Any) {
+        guard let pvc = self.presentingViewController else {return}
+        
+        self.dismiss(animated: true) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Later", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "LaterVC") as? LaterVC{
+                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalTransitionStyle = .crossDissolve
+                pvc.self.present(vc, animated: true, completion: nil)
+            }
+        }
     }
+    
 }

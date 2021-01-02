@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--LaterVC-->
+        <scene sceneID="AWh-dn-vVH">
+            <objects>
+                <viewController storyboardIdentifier="LaterVC" id="l8d-AO-Of9" customClass="LaterVC" customModule="FunctionTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2S9-Ja-SIB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJS-bx-TdJ">
+                                <rect key="frame" x="49" y="303" width="316" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HK1-8B-uBn">
+                                        <rect key="frame" x="283.5" y="15" width="17.5" height="22"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="close:" destination="l8d-AO-Of9" eventType="touchUpInside" id="0zd-JC-CpL"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12월 21일에 물주기" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1c-fS-aud">
+                                        <rect key="frame" x="72" y="30" width="172" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="일 후 물주기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wne-UC-dAo">
+                                        <rect key="frame" x="174" y="102" width="87" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frn-BS-mmE">
+                                        <rect key="frame" x="20" y="220" width="276" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2xb-2F-Ux2"/>
+                                        </constraints>
+                                        <state key="normal" title="물주기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-IQ-tOs">
+                                        <rect key="frame" x="51" y="75" width="115" height="94"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="HK1-8B-uBn" firstAttribute="top" secondItem="JJS-bx-TdJ" secondAttribute="top" constant="15" id="Bdo-MO-nzH"/>
+                                    <constraint firstItem="W1c-fS-aud" firstAttribute="top" secondItem="JJS-bx-TdJ" secondAttribute="top" constant="30" id="KbN-Hg-Mio"/>
+                                    <constraint firstItem="frn-BS-mmE" firstAttribute="leading" secondItem="JJS-bx-TdJ" secondAttribute="leading" constant="20" id="TUS-tx-QDA"/>
+                                    <constraint firstAttribute="trailing" secondItem="HK1-8B-uBn" secondAttribute="trailing" constant="15" id="VQb-Dt-W5a"/>
+                                    <constraint firstItem="W1c-fS-aud" firstAttribute="centerX" secondItem="JJS-bx-TdJ" secondAttribute="centerX" id="Z40-x0-ZhC"/>
+                                    <constraint firstAttribute="bottom" secondItem="frn-BS-mmE" secondAttribute="bottom" constant="30" id="oeH-Hs-PBC"/>
+                                    <constraint firstAttribute="trailing" secondItem="frn-BS-mmE" secondAttribute="trailing" constant="20" id="wSv-hf-Lpj"/>
+                                    <constraint firstAttribute="width" secondItem="JJS-bx-TdJ" secondAttribute="height" multiplier="79:75" id="xP7-HD-ZhA"/>
+                                    <constraint firstAttribute="width" constant="316" id="xPC-rn-NRG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="y95-FX-AQz"/>
+                        <color key="backgroundColor" red="0.28448138203654255" green="0.28310707584312927" blue="0.28585568822995577" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="JJS-bx-TdJ" firstAttribute="centerY" secondItem="y95-FX-AQz" secondAttribute="centerY" id="2Ll-cP-6PJ"/>
+                            <constraint firstItem="JJS-bx-TdJ" firstAttribute="centerX" secondItem="y95-FX-AQz" secondAttribute="centerX" id="rwW-iN-Xxh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateChangeLabel" destination="W1c-fS-aud" id="h1V-yH-GFM"/>
+                        <outlet property="laterPickerView" destination="kpE-IQ-tOs" id="MFl-pb-2AC"/>
+                        <outlet property="laterView" destination="JJS-bx-TdJ" id="dOZ-Wj-wYF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdh-8z-Moz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="202.89855072463769" y="49.553571428571423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
