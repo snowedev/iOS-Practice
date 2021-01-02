@@ -6,23 +6,35 @@
 //
 
 import UIKit
-import WSTagsField
-class ReviewVC: UIViewController,UITextFieldDelegate {
-    var maxLength = 100 /// 최대 글자 수
+
+class ReviewVC: UIViewController,UITextFieldDelegate,UITextViewDelegate {
+    //    var keywordLength = 10 /// 키워드 최대 글자 수
+    //    var memoLength = 100 /// 메모 최대 글자 수
     var keyword = [String]() /// 키워드 배열
     
     //MARK: -@IBOutlet
-    @IBOutlet weak var keywordCollectionView: UICollectionView!
+    @IBOutlet weak var keywordCollectionView: UICollectionView!{
+        didSet{
+            self.keywordCollectionView.register(KeywordCVC.nib(), forCellWithReuseIdentifier: KeywordCVC.identifier)
+            keywordCollectionView.delegate = self
+            keywordCollectionView.dataSource = self
+        }
+    }
     @IBOutlet weak var keywordTextField: UITextField!{
         didSet{
+            keywordTextField.delegate = self
             textFieldDoneBtnMake(text_field: keywordTextField)
+            /// TextField 커서 Padding
             keywordTextField.addLeftPadding()
             keywordTextField.addRightPadding()
         }
     }
-    @IBOutlet weak var memoTextField: UITextField!{
+    @IBOutlet weak var memoTextView: UITextView!{
         didSet{
-            memoTextField.addLeftPadding()
+            memoTextView.delegate = self
+            memoTextView.makeRounded(cornerRadius: 10.0)
+            /// TextView 커서 Padding
+            memoTextView.textContainerInset = UIEdgeInsets(top: 10, left: 12, bottom: 20, right: 12);
         }
     }
     @IBOutlet weak var keywordCountingLabel: UILabel!
@@ -40,10 +52,7 @@ class ReviewVC: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.keywordCollectionView.register(KeywordCVC.nib(), forCellWithReuseIdentifier: KeywordCVC.identifier)
-        keywordCollectionView.delegate = self
-        keywordCollectionView.dataSource = self
-        keywordTextField.delegate = self
+        textViewPlaceholder()
     }
     
     //MARK: -사용자 정의 함수
@@ -72,20 +81,50 @@ class ReviewVC: UIViewController,UITextFieldDelegate {
         }
     }
     
+    /// 키워드 부분 글자수 Counting
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else {return false}
-        
-        /// 최대 글자수 이상을 입력한 이후에는 중간에 다른 글자를 추가할 수 없게끔 작동
-        if text.count >= maxLength && range.length == 0 && range.location < maxLength {
+        let currentCharacterCount = textField.text?.count ?? 0
+        if (range.length + range.location > currentCharacterCount){
             return false
         }
-        let newLength = keywordTextField.text?.utf16.count ?? 0 + string.utf16.count - range.length
-        keywordCountingLabel.text =  "\(String(newLength))"+"/100"
-        /// Set value of the label
-        /// myCounter = newLength // Optional: Save this value
-        /// return newLength <= 25 // Optional: Set limits on input.
-        
-        return true
+        let newKeywordLength = currentCharacterCount + string.count - range.length
+        keywordCountingLabel.text =  "\(String(newKeywordLength))"+"/10"
+        return newKeywordLength <= 10
+    }
+    
+    /// 메모 부분 글자수 Counting
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentCharacterCount = memoTextView.text?.count ?? 0
+        if text == "\n" {
+            textView.resignFirstResponder()
+        }
+        if (range.length + range.location > currentCharacterCount){
+            return false
+        }
+        let newMemoLength = currentCharacterCount + text.count - range.length
+        memoCountingLabel.text =  "\(String(newMemoLength))"+"/100"
+        return newMemoLength <= 100
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textViewPlaceholder()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if memoTextView.text == "" {
+            textViewPlaceholder()
+        }
+    }
+    
+    func textViewPlaceholder() {
+        if memoTextView.text == "메모" {
+            memoTextView.text = ""
+            memoTextView.textColor = .label
+        }
+        else if memoTextView.text == "" {
+            memoTextView.text = "메모"
+            memoTextView.textColor = UIColor.lightGray
+        }
     }
     
     ///Return 눌렀을 때 키보드 내리기
@@ -113,7 +152,7 @@ extension ReviewVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return keyword.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeywordCVC.identifier, for: indexPath) as? KeywordCVC else{
             return UICollectionViewCell()
@@ -137,7 +176,7 @@ extension ReviewVC: UICollectionViewDelegateFlowLayout{
     {
         return 10
     }
-
+    
     //MARK: - 마진
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
     {

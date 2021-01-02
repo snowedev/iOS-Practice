@@ -57,23 +57,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="doneAccessory" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPG-gd-XwN">
-                                <rect key="frame" x="301.66666666666669" y="223" width="43.333333333333314" height="20.333333333333343"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="메모" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UfT-t2-3ML">
-                                <rect key="frame" x="20" y="318" width="335" height="200"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="GoE-7D-YSF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug8-Sw-hTT">
-                                <rect key="frame" x="303.66666666666669" y="487.66666666666669" width="41.333333333333314" height="20.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPG-gd-XwN">
+                                <rect key="frame" x="312" y="223" width="33" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -103,6 +88,16 @@
                                     <constraint firstItem="Yyc-PR-dIa" firstAttribute="height" secondItem="lGf-dV-PAe" secondAttribute="height" id="x9h-O2-F9o"/>
                                 </constraints>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vtq-cp-Jlz">
+                                <rect key="frame" x="20" y="318" width="335" height="200"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="VEo-wm-Bth"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a66-38-bSl">
                                 <rect key="frame" x="20" y="271" width="335" height="35"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -126,28 +121,34 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug8-Sw-hTT">
+                                <rect key="frame" x="301.66666666666669" y="487.66666666666669" width="43.333333333333314" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="012-up-zDW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lGf-dV-PAe" firstAttribute="trailing" secondItem="UfT-t2-3ML" secondAttribute="trailing" id="2tA-am-HNc"/>
+                            <constraint firstItem="Ug8-Sw-hTT" firstAttribute="bottom" secondItem="Vtq-cp-Jlz" secondAttribute="bottom" constant="-10" id="15m-G9-cT3"/>
+                            <constraint firstItem="m7W-B4-QeQ" firstAttribute="trailing" secondItem="Vtq-cp-Jlz" secondAttribute="trailing" id="3DW-wg-yce"/>
                             <constraint firstItem="BhG-GC-A1Z" firstAttribute="top" secondItem="mtK-xb-sTg" secondAttribute="bottom" constant="35" id="56n-pW-TfF"/>
-                            <constraint firstItem="UfT-t2-3ML" firstAttribute="trailing" secondItem="BhG-GC-A1Z" secondAttribute="trailing" id="E2J-kI-4qk"/>
+                            <constraint firstItem="Vtq-cp-Jlz" firstAttribute="leading" secondItem="BhG-GC-A1Z" secondAttribute="leading" id="ANv-Sg-qD7"/>
+                            <constraint firstItem="Vtq-cp-Jlz" firstAttribute="top" secondItem="a66-38-bSl" secondAttribute="bottom" constant="12" id="CS3-aO-lMh"/>
+                            <constraint firstItem="Ug8-Sw-hTT" firstAttribute="trailing" secondItem="CPG-gd-XwN" secondAttribute="trailing" id="DkS-GE-nA6"/>
                             <constraint firstItem="012-up-zDW" firstAttribute="trailing" secondItem="BhG-GC-A1Z" secondAttribute="trailing" constant="20" id="GmG-UM-cs8"/>
                             <constraint firstItem="CPG-gd-XwN" firstAttribute="trailing" secondItem="BhG-GC-A1Z" secondAttribute="trailing" constant="-10" id="HPE-NV-arv"/>
                             <constraint firstItem="mtK-xb-sTg" firstAttribute="leading" secondItem="012-up-zDW" secondAttribute="leading" constant="20" id="Nca-qv-Ww8"/>
-                            <constraint firstItem="Ug8-Sw-hTT" firstAttribute="trailing" secondItem="UfT-t2-3ML" secondAttribute="trailing" constant="-10" id="NpM-Ga-7Hf"/>
                             <constraint firstItem="CPG-gd-XwN" firstAttribute="centerY" secondItem="BhG-GC-A1Z" secondAttribute="centerY" id="NuH-dM-1av"/>
-                            <constraint firstItem="lGf-dV-PAe" firstAttribute="leading" secondItem="UfT-t2-3ML" secondAttribute="leading" id="Oll-3C-USf"/>
-                            <constraint firstItem="UfT-t2-3ML" firstAttribute="top" secondItem="a66-38-bSl" secondAttribute="bottom" constant="12" id="Uhj-8X-RcR"/>
                             <constraint firstItem="mtK-xb-sTg" firstAttribute="leading" secondItem="BhG-GC-A1Z" secondAttribute="leading" id="WtC-0K-iKd"/>
-                            <constraint firstItem="Ug8-Sw-hTT" firstAttribute="bottom" secondItem="UfT-t2-3ML" secondAttribute="bottom" constant="-10" id="Yq3-mz-jW3"/>
-                            <constraint firstItem="UfT-t2-3ML" firstAttribute="leading" secondItem="BhG-GC-A1Z" secondAttribute="leading" id="ZpV-pp-HZO"/>
                             <constraint firstItem="a66-38-bSl" firstAttribute="leading" secondItem="BhG-GC-A1Z" secondAttribute="leading" id="dX5-co-yqM"/>
                             <constraint firstItem="a66-38-bSl" firstAttribute="trailing" secondItem="BhG-GC-A1Z" secondAttribute="trailing" id="ghg-Ev-g76"/>
                             <constraint firstItem="mtK-xb-sTg" firstAttribute="top" secondItem="012-up-zDW" secondAttribute="top" constant="50" id="hfK-YU-76X"/>
                             <constraint firstItem="012-up-zDW" firstAttribute="bottom" secondItem="m7W-B4-QeQ" secondAttribute="bottom" constant="30" id="n6H-eu-7I6"/>
                             <constraint firstItem="a66-38-bSl" firstAttribute="top" secondItem="BhG-GC-A1Z" secondAttribute="bottom" constant="13" id="pCO-zV-Ssd"/>
+                            <constraint firstItem="m7W-B4-QeQ" firstAttribute="leading" secondItem="Vtq-cp-Jlz" secondAttribute="leading" id="pPy-xb-gN1"/>
+                            <constraint firstItem="Vtq-cp-Jlz" firstAttribute="trailing" secondItem="BhG-GC-A1Z" secondAttribute="trailing" id="qof-2l-tnj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -157,7 +158,7 @@
                         <outlet property="keywordTextField" destination="BhG-GC-A1Z" id="AN6-Yf-JMA"/>
                         <outlet property="laterBtn" destination="Yyc-PR-dIa" id="tZE-BG-Fzk"/>
                         <outlet property="memoCountingLabel" destination="Ug8-Sw-hTT" id="7cm-Pa-LdH"/>
-                        <outlet property="memoTextField" destination="UfT-t2-3ML" id="2aw-3O-cJM"/>
+                        <outlet property="memoTextView" destination="Vtq-cp-Jlz" id="0br-vm-4kC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BE7-dG-A7g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -166,6 +167,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
