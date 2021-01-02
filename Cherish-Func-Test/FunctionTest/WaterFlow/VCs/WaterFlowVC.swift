@@ -59,11 +59,34 @@ extension WaterFlowVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        /// Configure the cell
-        /// The name and telephone number at the current index of the contacts array is assigned to the text property of the textLabel and detailLabel property of the current cell.
-        cell.textLabel?.text = contacts[indexPath.row].lastName + "" + contacts[indexPath.row].firstName
-        cell.detailTextLabel?.text = contacts[indexPath.row].telephone
         
+//        contacts[indexPath.row].telephone.trimmingCharacters(in: ["/"])
+        contacts[indexPath.row].telephone = contacts[indexPath.row].telephone.components(separatedBy: ["-","/","/"]).joined()
+        print(contacts[indexPath.row].telephone.count)
+    
+        if  (contacts[indexPath.row].telephone).count == 11 {
+            var firstIndex = contacts[indexPath.row].telephone .index(contacts[indexPath.row].telephone .startIndex, offsetBy: 0)
+            var lastIndex = contacts[indexPath.row].telephone .index(contacts[indexPath.row].telephone .startIndex, offsetBy: 3)
+            let mobCom = "\(contacts[indexPath.row].telephone [firstIndex..<lastIndex])"
+
+            firstIndex = contacts[indexPath.row].telephone .index(contacts[indexPath.row].telephone .startIndex, offsetBy: 3)
+            lastIndex = contacts[indexPath.row].telephone .index(contacts[indexPath.row].telephone .endIndex, offsetBy: -4)
+            let mobNo1 = "\(contacts[indexPath.row].telephone [firstIndex..<lastIndex])"
+
+            firstIndex = contacts[indexPath.row].telephone .index(contacts[indexPath.row].telephone .endIndex, offsetBy: -4)
+            lastIndex = contacts[indexPath.row].telephone .index(contacts[indexPath.row].telephone .endIndex, offsetBy: 0)
+            let mobNo2 = "\(contacts[indexPath.row].telephone [firstIndex..<lastIndex])"
+            /// Configure the cell
+            /// The name and telephone number at the current index of the contacts array is assigned to the text property of the textLabel and detailLabel property of the current cell.
+            
+            cell.detailTextLabel?.text = "\(mobCom)" + "." + "\(mobNo1)" + "." + "\(mobNo2)"
+        }
+        else{
+            cell.detailTextLabel?.text = contacts[indexPath.row].telephone
+        }
+        cell.textLabel?.text = contacts[indexPath.row].lastName + "" + contacts[indexPath.row].firstName
+
+            
         return cell
     }
     

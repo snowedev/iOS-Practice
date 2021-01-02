@@ -121,8 +121,8 @@
 			children = (
 				548DF0B0259C369E0081FCD1 /* WaterFlow */,
 				548DF09D259B19EE0081FCD1 /* Contact Test */,
-				548DF076259AC8830081FCD1 /* Supporting File */,
 				548DF075259AC8660081FCD1 /* Calendar Custom */,
+				548DF076259AC8830081FCD1 /* Supporting File */,
 				548DF067259A27AD0081FCD1 /* Info.plist */,
 			);
 			path = FunctionTest;
