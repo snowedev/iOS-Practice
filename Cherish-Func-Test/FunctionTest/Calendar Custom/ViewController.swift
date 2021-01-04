@@ -13,11 +13,6 @@ class ViewController: UIViewController {
     //MARK: -IBOutlet
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var showCardBtn: UIButton!
-    @IBOutlet weak var eventCollectionView: UICollectionView!{
-        didSet{
-            eventCollectionView.layer.cornerRadius = 20
-        }
-    }
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     
     let formatter = DateFormatter()
@@ -33,26 +28,21 @@ class ViewController: UIViewController {
         //MARK:- Set Delegate & Datasource
         calendar.delegate = self
         calendar.dataSource = self
-        eventCollectionView.delegate = self
-        eventCollectionView.dataSource = self
-        
-        //MARK: -xib Register
-        self.eventCollectionView.register(EventCVC.nib(), forCellWithReuseIdentifier: EventCVC.identifier)
         cal_Style()
     }
     
-    @IBAction func showCard(_ sender: Any) {
-        if status == true{
-            status = false
-            self.calendar.setScope(.week, animated: true)
-            self.eventCollectionView.reloadData()
-            
-        }else{
-            status = true
-            self.calendar.setScope(.month, animated: true)
-            self.eventCollectionView.reloadData()
-        }
-    }
+//    @IBAction func showCard(_ sender: Any) {
+//        if status == true{
+//            status = false
+//            self.calendar.setScope(.week, animated: true)
+//            self.eventCollectionView.reloadData()
+//
+//        }else{
+//            status = true
+//            self.calendar.setScope(.month, animated: true)
+//            self.eventCollectionView.reloadData()
+//        }
+//    }
     
     func cal_Style() {
         /// 캘린더 헤더 부분
@@ -83,45 +73,6 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource{
     }
 }
 
-//MARK: -CollecitonView protocols
-extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if status == true{
-            return 1
-        }else{
-            return items.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EventCVC.identifier, for: indexPath) as? EventCVC else{
-            return UICollectionViewCell()
-        }
-        cell.layer.cornerRadius = 20
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        self.expandSection[indexPath.row] = !self.expandSection[indexPath.row]
-        self.eventCollectionView.reloadItems(at: collectionView.indexPathsForSelectedItems!)
-    }
-    
-    //MARK: - Cell 사이즈
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-    {
-        if status == true {
-            return CGSize(width: collectionView.frame.width, height: 150)
-        }else{
-            return CGSize(width: collectionView.frame.width, height: 150)
-        }
-    }
-    
-    //MARK: - Cell간의 상하간격 지정
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
-    {
-        return 10
-    }
-}
 
 //    //MARK: - 마진
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets

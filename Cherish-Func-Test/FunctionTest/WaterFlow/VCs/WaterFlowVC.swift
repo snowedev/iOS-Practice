@@ -60,7 +60,6 @@ extension WaterFlowVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-//        contacts[indexPath.row].telephone.trimmingCharacters(in: ["/"])
         contacts[indexPath.row].telephone = contacts[indexPath.row].telephone.components(separatedBy: ["-","/","/"]).joined()
         print(contacts[indexPath.row].telephone.count)
     
