@@ -24,6 +24,20 @@
                                         <rect key="frame" x="0.0" y="27" width="335" height="310"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlT-Gc-1lD">
+                                        <rect key="frame" x="244" y="40" width="6" height="22"/>
+                                        <state key="normal" image="icArrowRightCalendar"/>
+                                        <connections>
+                                            <action selector="moveToNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="54t-xJ-gix"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7R-1e-eQB">
+                                        <rect key="frame" x="85" y="40" width="6" height="22"/>
+                                        <state key="normal" image="icArrowLeftCalendar"/>
+                                        <connections>
+                                            <action selector="moveToPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gyQ-iB-cyU"/>
+                                        </connections>
+                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PbE-zU-58C">
                                         <rect key="frame" x="197.66666666666666" y="360.66666666666669" width="119.33333333333334" height="14.333333333333314"/>
                                         <subviews>
@@ -50,12 +64,17 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="i7R-1e-eQB" firstAttribute="leading" secondItem="L32-wP-3Nz" secondAttribute="leading" constant="85" id="0gU-Ve-ec5"/>
                                     <constraint firstAttribute="trailing" secondItem="PbE-zU-58C" secondAttribute="trailing" constant="18" id="9od-vG-Ath"/>
                                     <constraint firstItem="OwP-rs-imJ" firstAttribute="leading" secondItem="L32-wP-3Nz" secondAttribute="leading" id="BiY-LI-yKn"/>
+                                    <constraint firstItem="i7R-1e-eQB" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="40" id="T4T-Qc-eIY"/>
                                     <constraint firstItem="OwP-rs-imJ" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="27" id="UE1-jd-d1e"/>
                                     <constraint firstAttribute="bottom" secondItem="PbE-zU-58C" secondAttribute="bottom" constant="14" id="UuD-YJ-vcm"/>
+                                    <constraint firstItem="tlT-Gc-1lD" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="40" id="cjV-vf-92l"/>
                                     <constraint firstAttribute="height" constant="389" id="glx-Tg-qvr"/>
                                     <constraint firstAttribute="bottom" secondItem="OwP-rs-imJ" secondAttribute="bottom" constant="52" id="l5Y-z6-uhU"/>
+                                    <constraint firstAttribute="trailing" secondItem="tlT-Gc-1lD" secondAttribute="trailing" constant="85" id="p0Z-mi-XQs"/>
+                                    <constraint firstItem="i7R-1e-eQB" firstAttribute="centerY" secondItem="tlT-Gc-1lD" secondAttribute="centerY" id="rWs-NX-YOD"/>
                                     <constraint firstAttribute="trailing" secondItem="OwP-rs-imJ" secondAttribute="trailing" id="xUc-8w-h0y"/>
                                 </constraints>
                             </view>
@@ -79,6 +98,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icArrowLeftCalendar" width="6" height="10"/>
+        <image name="icArrowRightCalendar" width="6" height="10"/>
         <image name="icWateringCalendar" width="9" height="9"/>
         <image name="icWateringLaterCalendar" width="9" height="9"/>
         <namedColor name="BGColor">

@@ -45,6 +45,28 @@ class ViewController: UIViewController {
     //            self.eventCollectionView.reloadData()
     //        }
     //    }
+    var dateComponents = DateComponents()
+    let calendarCurrent = Calendar.current
+    private var currentPage: Date?
+    private lazy var today: Date = {
+        return Date()
+    }()
+
+
+    @IBAction func moveToNext(_ sender: Any) {
+        self.moveCurrentPage(moveUp: true)
+    }
+    @IBAction func moveToPrev(_ sender: Any) {
+        self.moveCurrentPage(moveUp: false)
+    }
+    
+    
+    private func moveCurrentPage(moveUp: Bool) {
+        dateComponents.month = moveUp ? 1 : -1
+        self.currentPage = calendarCurrent.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
+        self.calendar.setCurrentPage(self.currentPage!, animated: true)
+    }
+    
     
     func cal_Style() {
         /// 캘린더 헤더 부분
@@ -53,7 +75,7 @@ class ViewController: UIViewController {
         calendar.locale = Locale(identifier: "ko_KR") /// 한국어로 변경
         calendar.appearance.headerDateFormat = "YYYY년 M월" /// 디폴트는 M월 YYYY년
         calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
-//        calendar.layer.cornerRadius = 20
+        //        calendar.layer.cornerRadius = 20
         
         /// 캘린터 텍스트 색
         calendar.backgroundColor = .white /// 배경색
@@ -68,14 +90,14 @@ class ViewController: UIViewController {
         calendar.appearance.todaySelectionColor = .none // 오늘 선택 색
         
         
-//        // Month 폰트 설정
-//        mainCalendar.appearance.headerTitleFont = UIFont(name: Config.Font.normal, size: Config.FontSize.month)
-//
-//        // day 폰트 설정
-//        mainCalendar.appearance.titleFont = UIFont(name: Config.Font.bold, size: Config.FontSize.day)
-//
-//        // 캘린더에 이번달 날짜만 표시하기 위함
-//        mainCalendar.placeholderType = .none
+        // Month 폰트 설정
+        calendar.appearance.headerTitleFont = UIFont(name: "System", size: 16)
+        
+        // day 폰트 설정
+        calendar.appearance.titleFont = UIFont(name: "System", size: 14)
+        //
+        //        // 캘린더에 이번달 날짜만 표시하기 위함
+        //        mainCalendar.placeholderType = .none
         
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "yyyy-MM-dd"
@@ -100,34 +122,15 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource{
             return 0
         }
     }
+    // 날짜 선택 시 콜백 메소드
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(formatter.string(from: date) + " 선택됨")
+    }
+    // 날짜 선택 해제 시 콜백 메소드
+    public func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(formatter.string(from: date) + " 해제됨")
+    }
+    
 }
-
-
-//    //MARK: - 마진
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets
-//    {
-//        return UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
-//    }
-
-
-//extension ViewController: FSCalendarDelegate, FSCalendarDataSource {
-//    //이벤트 표시 개수
-//    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-//        if self.events.contains(date) {
-//            return 1
-//        } else {
-//            return 0
-//        }
-//    }
-//
-//    // 날짜 선택 시 콜백 메소드
-//    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        print(formatter.string(from: date) + " 선택됨")
-//    }
-//    // 날짜 선택 해제 시 콜백 메소드
-//    public func calendar(_ calendar: FSCalendar, didDeselect date: Date, at monthPosition: FSCalendarMonthPosition) {
-//        print(formatter.string(from: date) + " 해제됨")
-//    }
-//}
 
 
