@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,35 +17,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OwP-rs-imJ" customClass="FSCalendar">
-                                <rect key="frame" x="10" y="64" width="355" height="400"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L32-wP-3Nz">
+                                <rect key="frame" x="20" y="44" width="335" height="389"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OwP-rs-imJ" customClass="FSCalendar">
+                                        <rect key="frame" x="0.0" y="27" width="335" height="310"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PbE-zU-58C">
+                                        <rect key="frame" x="197.66666666666666" y="360.66666666666669" width="119.33333333333334" height="14.333333333333314"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWateringCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="z5h-Ks-s04">
+                                                <rect key="frame" x="0.0" y="0.0" width="9" height="14.333333333333334"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물 준 날" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u49-24-qUt">
+                                                <rect key="frame" x="14" y="0.0" width="38" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWateringLaterCalendar" translatesAutoresizingMaskIntoConstraints="NO" id="XZH-r7-l8g">
+                                                <rect key="frame" x="57.000000000000028" y="0.0" width="9" height="14.333333333333334"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물 주는 날" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Co-Qx-ceG">
+                                                <rect key="frame" x="71.000000000000028" y="0.0" width="48.333333333333343" height="14.333333333333334"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="Ejf-eE-5fN"/>
+                                    <constraint firstAttribute="trailing" secondItem="PbE-zU-58C" secondAttribute="trailing" constant="18" id="9od-vG-Ath"/>
+                                    <constraint firstItem="OwP-rs-imJ" firstAttribute="leading" secondItem="L32-wP-3Nz" secondAttribute="leading" id="BiY-LI-yKn"/>
+                                    <constraint firstItem="OwP-rs-imJ" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="27" id="UE1-jd-d1e"/>
+                                    <constraint firstAttribute="bottom" secondItem="PbE-zU-58C" secondAttribute="bottom" constant="14" id="UuD-YJ-vcm"/>
+                                    <constraint firstAttribute="height" constant="389" id="glx-Tg-qvr"/>
+                                    <constraint firstAttribute="bottom" secondItem="OwP-rs-imJ" secondAttribute="bottom" constant="52" id="l5Y-z6-uhU"/>
+                                    <constraint firstAttribute="trailing" secondItem="OwP-rs-imJ" secondAttribute="trailing" id="xUc-8w-h0y"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OwP-rs-imJ" secondAttribute="trailing" constant="10" id="7Yp-hn-uIN"/>
-                            <constraint firstItem="OwP-rs-imJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Bjw-3f-PWe"/>
-                            <constraint firstItem="OwP-rs-imJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="zl8-CF-Mrc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L32-wP-3Nz" secondAttribute="trailing" constant="20" id="Hx3-Ox-EyW"/>
+                            <constraint firstItem="L32-wP-3Nz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Tus-7A-u7i"/>
+                            <constraint firstItem="L32-wP-3Nz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jE7-lt-gs6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendar" destination="OwP-rs-imJ" id="wB4-Yk-Tza"/>
-                        <outlet property="calendarHeight" destination="Ejf-eE-5fN" id="4gj-33-qn8"/>
+                        <outlet property="calendarView" destination="L32-wP-3Nz" id="U7w-xh-BgL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
+            <point key="canvasLocation" x="34.399999999999999" y="93.103448275862078"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icWateringCalendar" width="9" height="9"/>
+        <image name="icWateringLaterCalendar" width="9" height="9"/>
         <namedColor name="BGColor">
             <color red="0.88200002908706665" green="0.87800002098083496" blue="0.88599997758865356" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -12,37 +12,39 @@ class ViewController: UIViewController {
     
     //MARK: -IBOutlet
     @IBOutlet weak var calendar: FSCalendar!
-    @IBOutlet weak var showCardBtn: UIButton!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet weak var calendarView: UIView!{
+        didSet{
+            calendarView.layer.cornerRadius = 20.0
+        }
+    }
     
     let formatter = DateFormatter()
     var status: Bool? = true
     var expandSection = [Bool]()
     var items = [String]()
-    
+    var events = [Date]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.items = ["A","B","C","D","E","F","G","H","J","K"]
         self.expandSection = [Bool](repeating: false, count: self.items.count)
-        
         //MARK:- Set Delegate & Datasource
         calendar.delegate = self
         calendar.dataSource = self
         cal_Style()
     }
     
-//    @IBAction func showCard(_ sender: Any) {
-//        if status == true{
-//            status = false
-//            self.calendar.setScope(.week, animated: true)
-//            self.eventCollectionView.reloadData()
-//
-//        }else{
-//            status = true
-//            self.calendar.setScope(.month, animated: true)
-//            self.eventCollectionView.reloadData()
-//        }
-//    }
+    //    @IBAction func showCard(_ sender: Any) {
+    //        if status == true{
+    //            status = false
+    //            self.calendar.setScope(.week, animated: true)
+    //            self.eventCollectionView.reloadData()
+    //
+    //        }else{
+    //            status = true
+    //            self.calendar.setScope(.month, animated: true)
+    //            self.eventCollectionView.reloadData()
+    //        }
+    //    }
     
     func cal_Style() {
         /// 캘린더 헤더 부분
@@ -51,16 +53,35 @@ class ViewController: UIViewController {
         calendar.locale = Locale(identifier: "ko_KR") /// 한국어로 변경
         calendar.appearance.headerDateFormat = "YYYY년 M월" /// 디폴트는 M월 YYYY년
         calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
-        calendar.layer.cornerRadius = 20
+//        calendar.layer.cornerRadius = 20
         
         /// 캘린터 텍스트 색
         calendar.backgroundColor = .white /// 배경색
         calendar.appearance.weekdayTextColor = UIColor.darkGray ///요일 색
         calendar.appearance.headerTitleColor = UIColor.black ///년도, 월 색
-        calendar.appearance.eventDefaultColor = UIColor.red // 이벤트 색
+        calendar.appearance.eventDefaultColor = .customgreen // 이벤트 색
+        calendar.appearance.eventSelectionColor = .customred // 이벤트 색
         calendar.appearance.selectionColor = UIColor.lightGray // 선택 된 날의 색
-        calendar.appearance.todayColor = UIColor.darkGray // 오늘 색
-        calendar.appearance.todaySelectionColor = UIColor.black // 오늘 선택 색
+        
+        
+        calendar.appearance.todayColor = .darkGray // 오늘 색
+        calendar.appearance.todaySelectionColor = .none // 오늘 선택 색
+        
+        
+//        // Month 폰트 설정
+//        mainCalendar.appearance.headerTitleFont = UIFont(name: Config.Font.normal, size: Config.FontSize.month)
+//
+//        // day 폰트 설정
+//        mainCalendar.appearance.titleFont = UIFont(name: Config.Font.bold, size: Config.FontSize.day)
+//
+//        // 캘린더에 이번달 날짜만 표시하기 위함
+//        mainCalendar.placeholderType = .none
+        
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "yyyy-MM-dd"
+        let SHB = formatter.date(from: "2021-01-06")
+        let love = formatter.date(from: "2021-01-26")
+        events = [SHB!, love!]
     }
 }
 
@@ -70,6 +91,14 @@ extension ViewController: FSCalendarDelegate, FSCalendarDataSource{
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool){
         calendarHeight.constant = bounds.height
         self.view.layoutIfNeeded ()
+    }
+    //이벤트 표시 개수
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        if self.events.contains(date) {
+            return 1
+        } else {
+            return 0
+        }
     }
 }
 
