@@ -23,16 +23,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OwP-rs-imJ" customClass="FSCalendar">
                                         <rect key="frame" x="0.0" y="27" width="335" height="310"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="310" id="AVc-sL-pOV"/>
+                                        </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlT-Gc-1lD">
-                                        <rect key="frame" x="244" y="40" width="6" height="22"/>
+                                        <rect key="frame" x="244" y="42" width="6" height="22"/>
                                         <state key="normal" image="icArrowRightCalendar"/>
                                         <connections>
                                             <action selector="moveToNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="54t-xJ-gix"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7R-1e-eQB">
-                                        <rect key="frame" x="85" y="40" width="6" height="22"/>
+                                        <rect key="frame" x="85" y="42" width="6" height="22"/>
                                         <state key="normal" image="icArrowLeftCalendar"/>
                                         <connections>
                                             <action selector="moveToPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gyQ-iB-cyU"/>
@@ -67,10 +70,10 @@
                                     <constraint firstItem="i7R-1e-eQB" firstAttribute="leading" secondItem="L32-wP-3Nz" secondAttribute="leading" constant="85" id="0gU-Ve-ec5"/>
                                     <constraint firstAttribute="trailing" secondItem="PbE-zU-58C" secondAttribute="trailing" constant="18" id="9od-vG-Ath"/>
                                     <constraint firstItem="OwP-rs-imJ" firstAttribute="leading" secondItem="L32-wP-3Nz" secondAttribute="leading" id="BiY-LI-yKn"/>
-                                    <constraint firstItem="i7R-1e-eQB" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="40" id="T4T-Qc-eIY"/>
+                                    <constraint firstItem="i7R-1e-eQB" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="42" id="T4T-Qc-eIY"/>
                                     <constraint firstItem="OwP-rs-imJ" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="27" id="UE1-jd-d1e"/>
                                     <constraint firstAttribute="bottom" secondItem="PbE-zU-58C" secondAttribute="bottom" constant="14" id="UuD-YJ-vcm"/>
-                                    <constraint firstItem="tlT-Gc-1lD" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="40" id="cjV-vf-92l"/>
+                                    <constraint firstItem="tlT-Gc-1lD" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="top" constant="42" id="cjV-vf-92l"/>
                                     <constraint firstAttribute="height" constant="389" id="glx-Tg-qvr"/>
                                     <constraint firstAttribute="bottom" secondItem="OwP-rs-imJ" secondAttribute="bottom" constant="52" id="l5Y-z6-uhU"/>
                                     <constraint firstAttribute="trailing" secondItem="tlT-Gc-1lD" secondAttribute="trailing" constant="85" id="p0Z-mi-XQs"/>
@@ -78,18 +81,43 @@
                                     <constraint firstAttribute="trailing" secondItem="OwP-rs-imJ" secondAttribute="trailing" id="xUc-8w-h0y"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIy-ss-xTh">
+                                <rect key="frame" x="20" y="447" width="335" height="220"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkT-XB-0az">
+                                        <rect key="frame" x="145.66666666666666" y="176" width="44" height="44"/>
+                                        <state key="normal" image="icBack"/>
+                                        <connections>
+                                            <action selector="expandCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EeJ-9o-w3S"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="0IA-CK-CSE"/>
+                                    <constraint firstAttribute="bottom" secondItem="fkT-XB-0az" secondAttribute="bottom" id="kfP-Ca-N4i"/>
+                                    <constraint firstItem="fkT-XB-0az" firstAttribute="centerX" secondItem="lIy-ss-xTh" secondAttribute="centerX" id="sUN-fZ-Sjm"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BGColor"/>
                         <constraints>
+                            <constraint firstItem="lIy-ss-xTh" firstAttribute="leading" secondItem="L32-wP-3Nz" secondAttribute="leading" id="Hpg-1P-sMg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L32-wP-3Nz" secondAttribute="trailing" constant="20" id="Hx3-Ox-EyW"/>
+                            <constraint firstItem="lIy-ss-xTh" firstAttribute="trailing" secondItem="L32-wP-3Nz" secondAttribute="trailing" id="J3k-23-mwL"/>
+                            <constraint firstItem="lIy-ss-xTh" firstAttribute="top" secondItem="L32-wP-3Nz" secondAttribute="bottom" constant="14" id="J5G-C8-A1m"/>
                             <constraint firstItem="L32-wP-3Nz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Tus-7A-u7i"/>
                             <constraint firstItem="L32-wP-3Nz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jE7-lt-gs6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="calendar" destination="OwP-rs-imJ" id="wB4-Yk-Tza"/>
+                        <outlet property="calendarHeight" destination="AVc-sL-pOV" id="AS4-LV-8fD"/>
                         <outlet property="calendarView" destination="L32-wP-3Nz" id="U7w-xh-BgL"/>
+                        <outlet property="calendarViewHeight" destination="glx-Tg-qvr" id="M7i-Tf-oxd"/>
+                        <outlet property="eventCategory" destination="PbE-zU-58C" id="lhe-YB-W3P"/>
+                        <outlet property="memoShowView" destination="lIy-ss-xTh" id="dOe-R9-Rmg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,6 +128,7 @@
     <resources>
         <image name="icArrowLeftCalendar" width="6" height="10"/>
         <image name="icArrowRightCalendar" width="6" height="10"/>
+        <image name="icBack" width="44" height="44"/>
         <image name="icWateringCalendar" width="9" height="9"/>
         <image name="icWateringLaterCalendar" width="9" height="9"/>
         <namedColor name="BGColor">
