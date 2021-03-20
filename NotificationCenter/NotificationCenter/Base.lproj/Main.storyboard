@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PKW-U4-UVF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--First-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="NotificationCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qf6-Gv-q0U">
+                                <rect key="frame" x="169" y="404" width="76" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="POST"/>
+                                <connections>
+                                    <action selector="postBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8gC-kf-fVJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qf6-Gv-q0U" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9dm-SP-aUa"/>
+                            <constraint firstItem="Qf6-Gv-q0U" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="oZS-aa-LtQ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="First" image="1.circle" catalog="system" selectedImage="1.circle.fill" id="WrF-rz-30m"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-751" y="864"/>
+        </scene>
+        <!--Second-->
+        <scene sceneID="Ypw-El-Ac3">
+            <objects>
+                <viewController id="yYu-Fp-Cve" customClass="SecondVC" customModule="NotificationCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="acD-ew-tAX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iQm-CW-qS5">
+                                <rect key="frame" x="82" y="303.5" width="250" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="0gN-8m-MU8"/>
+                                    <constraint firstAttribute="width" secondItem="iQm-CW-qS5" secondAttribute="height" multiplier="1:1" id="iaa-D8-Ev6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HaO-Uj-XmD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iQm-CW-qS5" firstAttribute="centerX" secondItem="HaO-Uj-XmD" secondAttribute="centerX" id="38E-d8-nKA"/>
+                            <constraint firstItem="iQm-CW-qS5" firstAttribute="centerY" secondItem="HaO-Uj-XmD" secondAttribute="centerY" id="bHr-Hc-ErT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Second" image="2.circle" catalog="system" selectedImage="2.circle.fill" id="jTs-nP-LZZ"/>
+                    <connections>
+                        <outlet property="secondBox" destination="iQm-CW-qS5" id="shY-V2-bww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B32-qX-YdK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19" y="864"/>
+        </scene>
+        <!--Third-->
+        <scene sceneID="l9B-cU-5gj">
+            <objects>
+                <viewController id="PCY-CT-MIh" customClass="ThirdVC" customModule="NotificationCenter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rcE-QN-Ntg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aC6-av-d4G">
+                                <rect key="frame" x="82" y="303.5" width="250" height="250"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="DmY-UK-GL1"/>
+                                    <constraint firstAttribute="width" secondItem="aC6-av-d4G" secondAttribute="height" multiplier="1:1" id="yud-lC-Kvd"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="M63-De-kxN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aC6-av-d4G" firstAttribute="centerX" secondItem="M63-De-kxN" secondAttribute="centerX" id="cfn-fg-K7k"/>
+                            <constraint firstItem="aC6-av-d4G" firstAttribute="centerY" secondItem="M63-De-kxN" secondAttribute="centerY" id="mDx-1F-TPP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Third" image="3.circle" catalog="system" selectedImage="3.circle.fill" id="Rx1-iH-SN5"/>
+                    <connections>
+                        <outlet property="thirdBox" destination="aC6-av-d4G" id="Jcq-qr-Ptu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CM0-rz-XsX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="783" y="864"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="1jR-5j-HBu">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="PKW-U4-UVF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hvy-lJ-rGu">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="mfm-eL-q7d"/>
+                        <segue destination="yYu-Fp-Cve" kind="relationship" relationship="viewControllers" id="HJn-M2-0aq"/>
+                        <segue destination="PCY-CT-MIh" kind="relationship" relationship="viewControllers" id="hGI-dP-0Th"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8R-kC-ZwI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1.circle" catalog="system" width="128" height="121"/>
+        <image name="1.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="2.circle" catalog="system" width="128" height="121"/>
+        <image name="2.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="3.circle" catalog="system" width="128" height="121"/>
+        <image name="3.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
