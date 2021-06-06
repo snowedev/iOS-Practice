@@ -37,28 +37,27 @@ print("\(new_arr1.reduce(""){$0+$1})"+" / "+"\(new_arr2.reduce(""){$0+$1})")
 /*
  문제2.
 오름차순이지만 연속적이지는 않은 [Int] 배열이 하나 있습니다. 이 배열의 크기는 1,000,000이상입니다.
-그렇기 때문에 성능을 고려하여야 하는데, 어떤 int값이 주어지면 해당 int값이 배열 안에서 몇번째 index에 포함되어있는지 출력하는 알고리즘을 짜보세요.
+그렇기 때문에 성능을 고려하여야 하는데, 어떤 int값이 주어지면 해당 int값이 배열 안에서 몇번째 index에 포함되어있는지 출력하는 함수를 작성해보세요.
 만약 값이 없다면 -1을 출력하면 됩니다.
 */
 
-//func findIdx(_ arr: [Int], _ num: Int) -> Int {
-//    var test = arr
-//
-//    if (arr.count/2)  == 0 && test[arr.count/2] != num {
-//        return -1
-//    } else if test[arr.count/2] == num {
-//        return (arr.count/2)
-//    }
-//    
-//    // 중간값이 요청한 숫자보다 클 경우
-//    if test[(arr.count)/2] > num {
-//        test = Array(test[0..<(arr.count/2)])
-//        findIdx(test, num)
-//    } else {
-//        // 중간값이 요청한 숫자보다 작을 경우
-//        test = Array(test[(arr.count/2)...])
-//        findIdx(test, num)
-//    }
-////     자기 자리를 찾았으면 return
-////     끝까지 못찾았으면 -1
-//}
+func findIdx(_ arr: [Int], _ target: Int) {
+    var start = 0
+    var end = arr.count - 1
+    
+    while start <= end {
+        let mid = (start+end)/2
+        if arr[mid] == target {
+            print(mid)
+            break
+        } else if arr[mid] <= target {
+            start = mid + 1
+        } else {
+            end = mid - 1
+        }
+    }
+}
+
+findIdx([1,3,5,6,10,15,16,19,20,22], 19)
+
+
