@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		547EDB57269839B900AA7A5E /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 547EDB56269839B900AA7A5E /* Moya */; };
+		547EDB5A269839F700AA7A5E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 547EDB59269839F700AA7A5E /* SnapKit */; };
+		547EDB5D26983A1B00AA7A5E /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 547EDB5C26983A1B00AA7A5E /* Then */; };
+		548C2F092697669D0092EB51 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548C2F082697669D0092EB51 /* ReusableView.swift */; };
+		548C2F0C269768360092EB51 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 548C2F0B269768360092EB51 /* Kingfisher */; };
 		54E3651A267778B8001B9C72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E36519267778B8001B9C72 /* AppDelegate.swift */; };
 		54E3651C267778B8001B9C72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3651B267778B8001B9C72 /* SceneDelegate.swift */; };
 		54E3651E267778B8001B9C72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3651D267778B8001B9C72 /* ViewController.swift */; };
@@ -30,11 +35,10 @@
 		54E3655526778263001B9C72 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3655426778263001B9C72 /* GenericResponse.swift */; };
 		54E365572677829B001B9C72 /* PlainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E365562677829B001B9C72 /* PlainData.swift */; };
 		54E36559267782F5001B9C72 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E36558267782F5001B9C72 /* TestData.swift */; };
-		B7D972D5F9759A1E02BB1C0D /* Pods_CommonlyUsedStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7829DCD082905E7ACDF545 /* Pods_CommonlyUsedStorage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F6E78504DBBE6F55598011D /* Pods-CommonlyUsedStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonlyUsedStorage.debug.xcconfig"; path = "Target Support Files/Pods-CommonlyUsedStorage/Pods-CommonlyUsedStorage.debug.xcconfig"; sourceTree = "<group>"; };
+		548C2F082697669D0092EB51 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		54E36516267778B8001B9C72 /* CommonlyUsedStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonlyUsedStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E36519267778B8001B9C72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54E3651B267778B8001B9C72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +64,6 @@
 		54E3655426778263001B9C72 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		54E365562677829B001B9C72 /* PlainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainData.swift; sourceTree = "<group>"; };
 		54E36558267782F5001B9C72 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
-		BC3EA72E520E4542132B1F74 /* Pods-CommonlyUsedStorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CommonlyUsedStorage.release.xcconfig"; path = "Target Support Files/Pods-CommonlyUsedStorage/Pods-CommonlyUsedStorage.release.xcconfig"; sourceTree = "<group>"; };
-		CD7829DCD082905E7ACDF545 /* Pods_CommonlyUsedStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CommonlyUsedStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,20 +71,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7D972D5F9759A1E02BB1C0D /* Pods_CommonlyUsedStorage.framework in Frameworks */,
+				547EDB5A269839F700AA7A5E /* SnapKit in Frameworks */,
+				547EDB57269839B900AA7A5E /* Moya in Frameworks */,
+				548C2F0C269768360092EB51 /* Kingfisher in Frameworks */,
+				547EDB5D26983A1B00AA7A5E /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		548C2F072697668B0092EB51 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				548C2F082697669D0092EB51 /* ReusableView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		54E3650D267778B8001B9C72 = {
 			isa = PBXGroup;
 			children = (
 				54E36518267778B8001B9C72 /* CommonlyUsedStorage */,
 				54E36517267778B8001B9C72 /* Products */,
-				8209045AB02998F681C0078D /* Pods */,
-				78200EAAE9C704A28F323B8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +118,7 @@
 		54E3652D26777951001B9C72 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				548C2F072697668B0092EB51 /* Protocols */,
 				54E3653226777991001B9C72 /* Service */,
 				54E365312677798C001B9C72 /* Model */,
 				54E3653026777984001B9C72 /* Extension */,
@@ -189,23 +201,6 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		78200EAAE9C704A28F323B8B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CD7829DCD082905E7ACDF545 /* Pods_CommonlyUsedStorage.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		8209045AB02998F681C0078D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0F6E78504DBBE6F55598011D /* Pods-CommonlyUsedStorage.debug.xcconfig */,
-				BC3EA72E520E4542132B1F74 /* Pods-CommonlyUsedStorage.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,17 +208,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 54E3652A267778BB001B9C72 /* Build configuration list for PBXNativeTarget "CommonlyUsedStorage" */;
 			buildPhases = (
-				0EDF3898AED12A135147D29B /* [CP] Check Pods Manifest.lock */,
 				54E36512267778B8001B9C72 /* Sources */,
 				54E36513267778B8001B9C72 /* Frameworks */,
 				54E36514267778B8001B9C72 /* Resources */,
-				1BAFED5D1E6B67E033BABB65 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CommonlyUsedStorage;
+			packageProductDependencies = (
+				548C2F0B269768360092EB51 /* Kingfisher */,
+				547EDB56269839B900AA7A5E /* Moya */,
+				547EDB59269839F700AA7A5E /* SnapKit */,
+				547EDB5C26983A1B00AA7A5E /* Then */,
+			);
 			productName = CommonlyUsedStorage;
 			productReference = 54E36516267778B8001B9C72 /* CommonlyUsedStorage.app */;
 			productType = "com.apple.product-type.application";
@@ -251,6 +250,12 @@
 				Base,
 			);
 			mainGroup = 54E3650D267778B8001B9C72;
+			packageReferences = (
+				548C2F0A269768360092EB51 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				547EDB55269839B900AA7A5E /* XCRemoteSwiftPackageReference "Moya" */,
+				547EDB58269839F700AA7A5E /* XCRemoteSwiftPackageReference "SnapKit" */,
+				547EDB5B26983A1B00AA7A5E /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = 54E36517267778B8001B9C72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,48 +278,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0EDF3898AED12A135147D29B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CommonlyUsedStorage-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1BAFED5D1E6B67E033BABB65 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CommonlyUsedStorage/Pods-CommonlyUsedStorage-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CommonlyUsedStorage/Pods-CommonlyUsedStorage-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CommonlyUsedStorage/Pods-CommonlyUsedStorage-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		54E36512267778B8001B9C72 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -332,6 +295,7 @@
 				54E3651A267778B8001B9C72 /* AppDelegate.swift in Sources */,
 				54E3653B26777A99001B9C72 /* UITableView+Extension.swift in Sources */,
 				54E3654926777EE7001B9C72 /* UIFont+Extension.swift in Sources */,
+				548C2F092697669D0092EB51 /* ReusableView.swift in Sources */,
 				54E3651C267778B8001B9C72 /* SceneDelegate.swift in Sources */,
 				54E3654D26777F0D001B9C72 /* UITextField+Extension.swift in Sources */,
 				54E3655126778242001B9C72 /* APITarget.swift in Sources */,
@@ -483,7 +447,6 @@
 		};
 		54E3652B267778BB001B9C72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F6E78504DBBE6F55598011D /* Pods-CommonlyUsedStorage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -503,7 +466,6 @@
 		};
 		54E3652C267778BB001B9C72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC3EA72E520E4542132B1F74 /* Pods-CommonlyUsedStorage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -543,6 +505,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		547EDB55269839B900AA7A5E /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.1;
+			};
+		};
+		547EDB58269839F700AA7A5E /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+		547EDB5B26983A1B00AA7A5E /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+		548C2F0A269768360092EB51 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		547EDB56269839B900AA7A5E /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 547EDB55269839B900AA7A5E /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		547EDB59269839F700AA7A5E /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 547EDB58269839F700AA7A5E /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		547EDB5C26983A1B00AA7A5E /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 547EDB5B26983A1B00AA7A5E /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		548C2F0B269768360092EB51 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 548C2F0A269768360092EB51 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 54E3650E267778B8001B9C72 /* Project object */;
 }
