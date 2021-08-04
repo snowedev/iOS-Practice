@@ -54,19 +54,34 @@ let wsQueue = DispatchQueue(label: "ws")
 //}
 
 // MARK: - Serial && async
-wsQueue.async {
-    for i in 1...5 {
-        print("\(i)🚀")
-    }
-    print("==================")
-}
-wsQueue.async {
-    for i in 200...205 {
-        print("\(i)🥕")
-    }
-    print("==================")
-}
+//wsQueue.async {
+//    for i in 1...5 {
+//        print("\(i)🚀")
+//    }
+//    print("==================")
+//}
+//wsQueue.async {
+//    for i in 200...205 {
+//        print("\(i)🥕")
+//    }
+//    print("==================")
+//}
+//
+//for i in 100...105 {
+//    print("\(i)👻")
+//}
 
-for i in 100...105 {
-    print("\(i)👻")
-}
+// MARK: - ConCurrent && async + sync
+//DispatchQueue.global().async {
+//    for i in 1...5 {
+//        print("\(i)🚀")
+//    }
+//    print("==================")
+//}
+//
+//DispatchQueue.global().sync {
+//    for i in 200...205 {
+//        print("\(i)🥕")
+//    }
+//    print("==================")
+//}
