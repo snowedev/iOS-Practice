@@ -15,13 +15,14 @@ class ViewController: UIViewController {
         $0.font = UIFont.systemFont(ofSize: 20)
     }
     private lazy var imageView = UIImageView().then {
+        $0.backgroundColor = .systemGray2
         $0.setRounded(radius: $0.frame.height/2)
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFit
     }
     private lazy var loadBtn = UIButton().then {
         $0.addTarget(self, action: #selector(tappedLoad), for: .touchUpInside)
-        $0.setupButton(title: "Load", color: .white, font: UIFont.systemFont(ofSize: 12), backgroundColor: .black, state: .normal, radius: 20)
+        $0.setupButton(title: "Load", color: .white, font: UIFont.systemFont(ofSize: 25), backgroundColor: .black, state: .normal, radius: 20)
     }
     private lazy var activityIndicator = UIActivityIndicatorView()
     
