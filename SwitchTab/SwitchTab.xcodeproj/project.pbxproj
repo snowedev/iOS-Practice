@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		541AA63F271970070065423D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541AA63E271970070065423D /* AppDelegate.swift */; };
+		541AA641271970070065423D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541AA640271970070065423D /* SceneDelegate.swift */; };
+		541AA643271970070065423D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541AA642271970070065423D /* ViewController.swift */; };
+		541AA646271970070065423D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541AA644271970070065423D /* Main.storyboard */; };
+		541AA6482719700A0065423D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541AA6472719700A0065423D /* Assets.xcassets */; };
+		541AA64B2719700A0065423D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541AA6492719700A0065423D /* LaunchScreen.storyboard */; };
+		541AA6562719700A0065423D /* SwitchTabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541AA6552719700A0065423D /* SwitchTabTests.swift */; };
+		541AA6602719700A0065423D /* SwitchTabUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541AA65F2719700A0065423D /* SwitchTabUITests.swift */; };
+		541AA6622719700A0065423D /* SwitchTabUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541AA6612719700A0065423D /* SwitchTabUITestsLaunchTests.swift */; };
+		541AA670271970350065423D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 541AA66F271970350065423D /* SnapKit */; };
+		541AA6732719703E0065423D /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 541AA6722719703E0065423D /* Then */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		541AA6522719700A0065423D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 541AA633271970070065423D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 541AA63A271970070065423D;
+			remoteInfo = SwitchTab;
+		};
+		541AA65C2719700A0065423D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 541AA633271970070065423D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 541AA63A271970070065423D;
+			remoteInfo = SwitchTab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		541AA63B271970070065423D /* SwitchTab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwitchTab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		541AA63E271970070065423D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		541AA640271970070065423D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		541AA642271970070065423D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		541AA645271970070065423D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		541AA6472719700A0065423D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		541AA64A2719700A0065423D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		541AA64C2719700A0065423D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		541AA6512719700A0065423D /* SwitchTabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwitchTabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		541AA6552719700A0065423D /* SwitchTabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTabTests.swift; sourceTree = "<group>"; };
+		541AA65B2719700A0065423D /* SwitchTabUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwitchTabUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		541AA65F2719700A0065423D /* SwitchTabUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTabUITests.swift; sourceTree = "<group>"; };
+		541AA6612719700A0065423D /* SwitchTabUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTabUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		541AA638271970070065423D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				541AA670271970350065423D /* SnapKit in Frameworks */,
+				541AA6732719703E0065423D /* Then in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		541AA64E2719700A0065423D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		541AA6582719700A0065423D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		541AA632271970070065423D = {
+			isa = PBXGroup;
+			children = (
+				541AA63D271970070065423D /* SwitchTab */,
+				541AA6542719700A0065423D /* SwitchTabTests */,
+				541AA65E2719700A0065423D /* SwitchTabUITests */,
+				541AA63C271970070065423D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		541AA63C271970070065423D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				541AA63B271970070065423D /* SwitchTab.app */,
+				541AA6512719700A0065423D /* SwitchTabTests.xctest */,
+				541AA65B2719700A0065423D /* SwitchTabUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		541AA63D271970070065423D /* SwitchTab */ = {
+			isa = PBXGroup;
+			children = (
+				541AA63E271970070065423D /* AppDelegate.swift */,
+				541AA640271970070065423D /* SceneDelegate.swift */,
+				541AA642271970070065423D /* ViewController.swift */,
+				541AA644271970070065423D /* Main.storyboard */,
+				541AA6472719700A0065423D /* Assets.xcassets */,
+				541AA6492719700A0065423D /* LaunchScreen.storyboard */,
+				541AA64C2719700A0065423D /* Info.plist */,
+			);
+			path = SwitchTab;
+			sourceTree = "<group>";
+		};
+		541AA6542719700A0065423D /* SwitchTabTests */ = {
+			isa = PBXGroup;
+			children = (
+				541AA6552719700A0065423D /* SwitchTabTests.swift */,
+			);
+			path = SwitchTabTests;
+			sourceTree = "<group>";
+		};
+		541AA65E2719700A0065423D /* SwitchTabUITests */ = {
+			isa = PBXGroup;
+			children = (
+				541AA65F2719700A0065423D /* SwitchTabUITests.swift */,
+				541AA6612719700A0065423D /* SwitchTabUITestsLaunchTests.swift */,
+			);
+			path = SwitchTabUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		541AA63A271970070065423D /* SwitchTab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 541AA6652719700A0065423D /* Build configuration list for PBXNativeTarget "SwitchTab" */;
+			buildPhases = (
+				541AA637271970070065423D /* Sources */,
+				541AA638271970070065423D /* Frameworks */,
+				541AA639271970070065423D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwitchTab;
+			packageProductDependencies = (
+				541AA66F271970350065423D /* SnapKit */,
+				541AA6722719703E0065423D /* Then */,
+			);
+			productName = SwitchTab;
+			productReference = 541AA63B271970070065423D /* SwitchTab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		541AA6502719700A0065423D /* SwitchTabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 541AA6682719700A0065423D /* Build configuration list for PBXNativeTarget "SwitchTabTests" */;
+			buildPhases = (
+				541AA64D2719700A0065423D /* Sources */,
+				541AA64E2719700A0065423D /* Frameworks */,
+				541AA64F2719700A0065423D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				541AA6532719700A0065423D /* PBXTargetDependency */,
+			);
+			name = SwitchTabTests;
+			productName = SwitchTabTests;
+			productReference = 541AA6512719700A0065423D /* SwitchTabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		541AA65A2719700A0065423D /* SwitchTabUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 541AA66B2719700A0065423D /* Build configuration list for PBXNativeTarget "SwitchTabUITests" */;
+			buildPhases = (
+				541AA6572719700A0065423D /* Sources */,
+				541AA6582719700A0065423D /* Frameworks */,
+				541AA6592719700A0065423D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				541AA65D2719700A0065423D /* PBXTargetDependency */,
+			);
+			name = SwitchTabUITests;
+			productName = SwitchTabUITests;
+			productReference = 541AA65B2719700A0065423D /* SwitchTabUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		541AA633271970070065423D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					541AA63A271970070065423D = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					541AA6502719700A0065423D = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 541AA63A271970070065423D;
+					};
+					541AA65A2719700A0065423D = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 541AA63A271970070065423D;
+					};
+				};
+			};
+			buildConfigurationList = 541AA636271970070065423D /* Build configuration list for PBXProject "SwitchTab" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 541AA632271970070065423D;
+			packageReferences = (
+				541AA66E271970350065423D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				541AA6712719703E0065423D /* XCRemoteSwiftPackageReference "Then" */,
+			);
+			productRefGroup = 541AA63C271970070065423D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				541AA63A271970070065423D /* SwitchTab */,
+				541AA6502719700A0065423D /* SwitchTabTests */,
+				541AA65A2719700A0065423D /* SwitchTabUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		541AA639271970070065423D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				541AA64B2719700A0065423D /* LaunchScreen.storyboard in Resources */,
+				541AA6482719700A0065423D /* Assets.xcassets in Resources */,
+				541AA646271970070065423D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		541AA64F2719700A0065423D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		541AA6592719700A0065423D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		541AA637271970070065423D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				541AA643271970070065423D /* ViewController.swift in Sources */,
+				541AA63F271970070065423D /* AppDelegate.swift in Sources */,
+				541AA641271970070065423D /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		541AA64D2719700A0065423D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				541AA6562719700A0065423D /* SwitchTabTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		541AA6572719700A0065423D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				541AA6622719700A0065423D /* SwitchTabUITestsLaunchTests.swift in Sources */,
+				541AA6602719700A0065423D /* SwitchTabUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		541AA6532719700A0065423D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 541AA63A271970070065423D /* SwitchTab */;
+			targetProxy = 541AA6522719700A0065423D /* PBXContainerItemProxy */;
+		};
+		541AA65D2719700A0065423D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 541AA63A271970070065423D /* SwitchTab */;
+			targetProxy = 541AA65C2719700A0065423D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		541AA644271970070065423D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				541AA645271970070065423D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		541AA6492719700A0065423D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				541AA64A2719700A0065423D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		541AA6632719700A0065423D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		541AA6642719700A0065423D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		541AA6662719700A0065423D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwitchTab/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wonseok.SwitchTab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		541AA6672719700A0065423D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwitchTab/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wonseok.SwitchTab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		541AA6692719700A0065423D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wonseok.SwitchTabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwitchTab.app/SwitchTab";
+			};
+			name = Debug;
+		};
+		541AA66A2719700A0065423D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wonseok.SwitchTabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwitchTab.app/SwitchTab";
+			};
+			name = Release;
+		};
+		541AA66C2719700A0065423D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wonseok.SwitchTabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwitchTab;
+			};
+			name = Debug;
+		};
+		541AA66D2719700A0065423D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N8FDQCW52Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wonseok.SwitchTabUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwitchTab;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		541AA636271970070065423D /* Build configuration list for PBXProject "SwitchTab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				541AA6632719700A0065423D /* Debug */,
+				541AA6642719700A0065423D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		541AA6652719700A0065423D /* Build configuration list for PBXNativeTarget "SwitchTab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				541AA6662719700A0065423D /* Debug */,
+				541AA6672719700A0065423D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		541AA6682719700A0065423D /* Build configuration list for PBXNativeTarget "SwitchTabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				541AA6692719700A0065423D /* Debug */,
+				541AA66A2719700A0065423D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		541AA66B2719700A0065423D /* Build configuration list for PBXNativeTarget "SwitchTabUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				541AA66C2719700A0065423D /* Debug */,
+				541AA66D2719700A0065423D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		541AA66E271970350065423D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		541AA6712719703E0065423D /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		541AA66F271970350065423D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 541AA66E271970350065423D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		541AA6722719703E0065423D /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 541AA6712719703E0065423D /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 541AA633271970070065423D /* Project object */;
+}
