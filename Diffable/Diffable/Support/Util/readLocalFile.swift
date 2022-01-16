@@ -21,13 +21,28 @@ func readLocalFile(forName name: String) -> Data? {
     return nil
 }
 
-func parse(jsonData: Data) -> [Transaction] {
+func parse(jsonData: Data) -> [(Int, [Transaction])] {
     do {
         let decodedData = try JSONDecoder().decode(Transaction_Arr.self, from: jsonData)
-        return decodedData.transaction
+        var transactionDictionary = [Int : [Transaction]]()
+        for d in decodedData.transaction {
+            if var data = transactionDictionary[d.date] {
+                data.append(d)
+                transactionDictionary[d.date] = data
+            } else {
+                transactionDictionary[d.date] = [d]
+            }
+        }
+        return transactionDictionary.sorted { $0.key > $1.key }
     } catch {
         print("decode error")
     }
     
     preconditionFailure()
 }
+
+//func requestAdditionalData(data: [(Int, [Transaction])], page: Int) -> [(Int, [Transaction])] {
+//    if data.count >= page * 10 {
+//        return data[]
+//    }
+//}
