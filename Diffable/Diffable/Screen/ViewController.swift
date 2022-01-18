@@ -14,6 +14,7 @@ class ViewController: UIViewController {
         $0.register(TransactionCell.self, forCellReuseIdentifier: TransactionCell.className)
         $0.backgroundColor = .white
         $0.separatorStyle = .none
+        $0.prefetchDataSource = self
         $0.delegate = self
     }
     private var dataSource : DataSource!
@@ -38,16 +39,20 @@ extension ViewController {
         tableView.snp.makeConstraints {
             $0.edges.equalTo(self.view.safeAreaLayoutGuide)
         }
+        
+        tableView.tableHeaderView = UIView().then {
+            $0.snp.makeConstraints {
+                $0.width.equalTo(414)
+                $0.height.equalTo(300)
+            }
+            $0.backgroundColor = .orange
+        }
     }
-}
-
-// MARK: TableView Settings
-
-extension ViewController: UITableViewDelegate {
+    
     private func loadData() {
         // Bundle 내에 있는 json 파일 읽어오기
         if let data = readLocalFile(forName: "sample_data") {
-            transactionData = parse(jsonData: data)
+            transactionData = Array(parse(jsonData: data)[0...10])
         }
     }
     
@@ -55,6 +60,7 @@ extension ViewController: UITableViewDelegate {
         dataSource = DataSource(tableView: self.tableView) { tableView, indexPath, item in
             return self.configure(TransactionCell.self, with: item, for: indexPath)
         }
+        
         tableView.dataSource = dataSource
     }
     
@@ -64,6 +70,7 @@ extension ViewController: UITableViewDelegate {
             fatalError("Unable to dequeue \(cellType)")
         }
         
+        print("cellForRowAt", indexPath)
         cell.dataBinding(model: item)
         cell.awakeFromNib()
         return cell
@@ -75,11 +82,16 @@ extension ViewController: UITableViewDelegate {
             snapshot.appendItems(data)
         }
         
-        DispatchQueue.main.async { [self] in
-            self.dataSource.apply(snapshot, animatingDifferences: true)
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            self.dataSource.apply(self.snapshot, animatingDifferences: true)
         }
     }
-    
+}
+
+// MARK: TableView Settings
+
+extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         print(section)
         return UIView().then {
@@ -97,6 +109,15 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+}
+
+extension ViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach {
+            print("prefetchRowsAt",$0)
+//            , dataSource.itemIdentifier(for: $0)
+        }
     }
 }
 
