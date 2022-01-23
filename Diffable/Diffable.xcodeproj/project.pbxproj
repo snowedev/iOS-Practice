@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		543FFE15279D808A006FB82F /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 543FFE14279D808A006FB82F /* SkeletonView */; };
 		54BD45EA2792511C006219BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BD45E92792511C006219BB /* AppDelegate.swift */; };
 		54BD45EC2792511C006219BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BD45EB2792511C006219BB /* SceneDelegate.swift */; };
 		54BD45EE2792511C006219BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BD45ED2792511C006219BB /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54BD45FF27925161006219BB /* SnapKit in Frameworks */,
+				543FFE15279D808A006FB82F /* SkeletonView in Frameworks */,
 				54BD46022792516F006219BB /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +156,7 @@
 			packageProductDependencies = (
 				54BD45FE27925161006219BB /* SnapKit */,
 				54BD46012792516F006219BB /* Then */,
+				543FFE14279D808A006FB82F /* SkeletonView */,
 			);
 			productName = Diffable;
 			productReference = 54BD45E62792511C006219BB /* Diffable.app */;
@@ -186,6 +189,7 @@
 			packageReferences = (
 				54BD45FD27925161006219BB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				54BD46002792516F006219BB /* XCRemoteSwiftPackageReference "Then" */,
+				543FFE13279D808A006FB82F /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 54BD45E72792511C006219BB /* Products */;
 			projectDirPath = "";
@@ -438,6 +442,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		543FFE13279D808A006FB82F /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		54BD45FD27925161006219BB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -457,6 +469,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		543FFE14279D808A006FB82F /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 543FFE13279D808A006FB82F /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		54BD45FE27925161006219BB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 54BD45FD27925161006219BB /* XCRemoteSwiftPackageReference "SnapKit" */;

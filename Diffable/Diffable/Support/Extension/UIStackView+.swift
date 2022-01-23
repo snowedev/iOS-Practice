@@ -11,7 +11,7 @@ public extension UIStackView {
 
     convenience init(
         arrangedSubviews: [UIView],
-        axis: NSLayoutConstraint.Axis,
+        axis: NSLayoutConstraint.Axis = .horizontal,
         spacing: CGFloat = 0.0,
         alignment: UIStackView.Alignment = .fill,
         distribution: UIStackView.Distribution = .fill) {

@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SkeletonView
 import Then
 
 class ViewController: UIViewController {
@@ -14,6 +15,7 @@ class ViewController: UIViewController {
         $0.register(TransactionCell.self, forCellReuseIdentifier: TransactionCell.className)
         $0.backgroundColor = .white
         $0.separatorStyle = .none
+        $0.isSkeletonable = true
         $0.prefetchDataSource = self
         $0.delegate = self
     }
@@ -38,14 +40,6 @@ extension ViewController {
         view.addSubview(tableView)
         tableView.snp.makeConstraints {
             $0.edges.equalTo(self.view.safeAreaLayoutGuide)
-        }
-        
-        tableView.tableHeaderView = UIView().then {
-            $0.snp.makeConstraints {
-                $0.width.equalTo(414)
-                $0.height.equalTo(300)
-            }
-            $0.backgroundColor = .orange
         }
     }
     
@@ -72,7 +66,6 @@ extension ViewController {
         
         print("cellForRowAt", indexPath)
         cell.dataBinding(model: item)
-        cell.awakeFromNib()
         return cell
     }
     
@@ -81,9 +74,12 @@ extension ViewController {
             snapshot.appendSections(["\(key)"])
             snapshot.appendItems(data)
         }
+
+        tableView.showAnimatedGradientSkeleton()
         
-        DispatchQueue.global(qos: .background).async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now()+2.0) { [weak self] in
             guard let self = self else { return }
+            self.tableView.hideSkeleton(reloadDataAfter: false)
             self.dataSource.apply(self.snapshot, animatingDifferences: true)
         }
     }
@@ -123,4 +119,15 @@ extension ViewController: UITableViewDataSourcePrefetching {
 
 class DataSource: UITableViewDiffableDataSource<String, Transaction> {
     //
+}
+
+extension DataSource: SkeletonTableViewDataSource {
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return TransactionCell.className
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
 }

@@ -7,29 +7,54 @@
 
 import UIKit
 import SnapKit
+import SkeletonView
 import Then
 
 final class TransactionCell: UITableViewCell {
     private lazy var timeLabel = UILabel().then {
         $0.textColor = .black
+        $0.text = "00:00:00"
     }
     private lazy var gistLabel = UILabel().then {
         $0.textColor = .black
+        $0.sizeToFit()
+        $0.text = "거래자"
     }
     private lazy var titleLabel = UILabel().then {
+        $0.isSkeletonable = true
         $0.textColor = .black
+        $0.sizeToFit()
+        $0.text = "거래제목"
     }
     private lazy var ipjiLabel = UILabel().then {
+        $0.isSkeletonable = true
         $0.textColor = .black
+        $0.sizeToFit()
+        $0.text = "입출금 구분"
     }
     private lazy var moneyLabel = UILabel().then {
+        $0.isSkeletonable = true
         $0.textColor = .black
+        $0.sizeToFit()
+        $0.text = "입출금 금액"
     }
-    private lazy var timeSectionStackView = UIStackView(arrangedSubviews: [timeLabel, gistLabel])
+    private lazy var timeSectionStackView = UIStackView(arrangedSubviews: [timeLabel, gistLabel]).then {
+        $0.isSkeletonable = true
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.isSkeletonable = true
+        self.contentView.isSkeletonable = true
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setLayout()
     }
     
     override func prepareForReuse() {
@@ -67,9 +92,10 @@ extension TransactionCell {
         contentView.add(timeSectionStackView) {
             $0.snp.makeConstraints {
                 $0.top.left.equalToSuperview().offset(5)
+                $0.width.lessThanOrEqualTo(UIScreen.main.bounds.width/2)
             }
         }
-    }
+   }
     
     private func titleSectionLayout() {
         contentView.add(titleLabel) {
@@ -77,6 +103,7 @@ extension TransactionCell {
                 $0.top.equalTo(self.timeLabel.snp.bottom)
                 $0.left.equalTo(self.timeLabel)
                 $0.bottom.equalToSuperview().inset(5)
+                $0.width.lessThanOrEqualTo(UIScreen.main.bounds.width/3)
             }
         }
     }
@@ -86,11 +113,13 @@ extension TransactionCell {
             $0[0].snp.makeConstraints {
                 $0.top.equalToSuperview().offset(5)
                 $0.right.equalToSuperview().inset(5)
+                $0.width.lessThanOrEqualTo(UIScreen.main.bounds.width/4)
             }
             
             $0[1].snp.makeConstraints {
                 $0.top.equalTo(self.ipjiLabel.snp.bottom)
                 $0.right.equalTo(self.ipjiLabel)
+                $0.width.lessThanOrEqualTo(UIScreen.main.bounds.width/2)
             }
         }
     }
