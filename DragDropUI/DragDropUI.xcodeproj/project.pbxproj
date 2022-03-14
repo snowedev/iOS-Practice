@@ -13,6 +13,7 @@
 		2A49AA9127DB373C001EFD77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A49AA8F27DB373C001EFD77 /* Main.storyboard */; };
 		2A49AA9327DB373E001EFD77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A49AA9227DB373E001EFD77 /* Assets.xcassets */; };
 		2A49AA9627DB373E001EFD77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A49AA9427DB373E001EFD77 /* LaunchScreen.storyboard */; };
+		E80E602827DF854F007618B1 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80E602727DF854F007618B1 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2A49AA9227DB373E001EFD77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A49AA9527DB373E001EFD77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A49AA9727DB373E001EFD77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E80E602727DF854F007618B1 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				2A49AA8927DB373C001EFD77 /* AppDelegate.swift */,
 				2A49AA8B27DB373C001EFD77 /* SceneDelegate.swift */,
+				E80E602727DF854F007618B1 /* DataModel.swift */,
 				2A49AA8D27DB373C001EFD77 /* ViewController.swift */,
 				2A49AA8F27DB373C001EFD77 /* Main.storyboard */,
 				2A49AA9227DB373E001EFD77 /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A49AA8E27DB373C001EFD77 /* ViewController.swift in Sources */,
+				E80E602827DF854F007618B1 /* DataModel.swift in Sources */,
 				2A49AA8A27DB373C001EFD77 /* AppDelegate.swift in Sources */,
 				2A49AA8C27DB373C001EFD77 /* SceneDelegate.swift in Sources */,
 			);
