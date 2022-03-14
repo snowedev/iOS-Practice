@@ -12,7 +12,6 @@ class ViewController: UIViewController {
 	private var collectionView: UICollectionView?
 	
 	var colors: [UIColor] = [
-		
 		.blue,
 		.systemRed,
 		.systemBlue,
