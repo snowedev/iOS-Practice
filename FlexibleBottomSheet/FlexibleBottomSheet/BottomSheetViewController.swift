@@ -17,7 +17,7 @@ final class BottomSheetViewController: UIViewController {
 		return view
 	}()
 	
-	private let contentView: UIView = {
+	private let bottomSheet: UIView = {
 		let view = UIView()
 		view.backgroundColor = .white
 		view.layer.cornerRadius = 10
@@ -27,37 +27,25 @@ final class BottomSheetViewController: UIViewController {
 		return view
 	}()
 	
-	private let mockView: UIView = {
+	private let sheetHandlerView: UIView = {
 		let view = UIView()
-		view.layer.cornerRadius = 10
-		view.layer.cornerCurve = .continuous
 		view.backgroundColor = .systemGreen
 		return view
 	}()
 	
-	private let mockTwoView: UIView = {
+	private let sheetContentView: UIView = {
 		let view = UIView()
-		view.layer.cornerRadius = 10
-		view.layer.cornerCurve = .continuous
-		view.backgroundColor = .systemBlue
-		return view
-	}()
-	
-	private let mockThreeView: UIView = {
-		let view = UIView()
-		view.layer.cornerRadius = 10
-		view.layer.cornerCurve = .continuous
 		view.backgroundColor = .systemRed
 		return view
 	}()
 	
 	private let maxDimmedAlpha: CGFloat = 0.6
-	private let defaultHeight: CGFloat = 300
 	private let dismissibleHeight: CGFloat = 200
-	private let secondMaxContainerHeight: CGFloat = UIScreen.main.bounds.height - 300
-	private let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
 	
-	// keep updated with new height
+	private let lowContainerHeight: CGFloat = 300
+	private let mediumContainerHeight: CGFloat = UIScreen.main.bounds.height - 300
+	private let highContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
+	
 	private var currentContainerHeight: CGFloat = 300
 	
 	override func viewDidLoad() {
@@ -68,8 +56,8 @@ final class BottomSheetViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		animateShowDimmedView()
-		animatePresentContainer(300)
+		presentDimmedViewSmoothly()
+		presentSheetWithAnimation(300)
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -79,29 +67,25 @@ final class BottomSheetViewController: UIViewController {
 	
 	private func configureUI() {
 		view.addSubview(dimmedView)
-		view.addSubview(contentView)
+		view.addSubview(bottomSheet)
 		
-		contentView.flex.direction(.column).define {
-			$0.addItem().direction(.row).justifyContent(.spaceEvenly).margin(.init(10)).define {
-					$0.addItem(mockView).height(50).marginRight(10).grow(1)
-					$0.addItem(mockTwoView).height(50).grow(1)
-				}
-			
-			$0.addItem(mockThreeView).margin(UIEdgeInsets(top: 0, left: 10, bottom: 20, right: 10)).grow(1)
+		bottomSheet.flex.direction(.column).define {
+			$0.addItem(sheetHandlerView).height(50)
+			$0.addItem(sheetContentView).marginTop(15).grow(1)
 		}
 	}
 	
 	private func configureLayout() {
 		dimmedView.pin.all()
-		contentView.pin.left().right().bottom()
-		contentView.flex.layout(mode: .fitContainer)
+		bottomSheet.pin.left().right().bottom()
+		bottomSheet.flex.layout(mode: .fitContainer)
 	}
 	
 	private func configureGesture() {
 		let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.handlePanGesture(gesture:)))
 		panGesture.delaysTouchesBegan = false
 		panGesture.delaysTouchesEnded = false
-		view.addGestureRecognizer(panGesture)
+		sheetHandlerView.addGestureRecognizer(panGesture)
 	}
 	
 	@objc
@@ -119,80 +103,71 @@ final class BottomSheetViewController: UIViewController {
 		switch gesture.state {
 		case .changed:
 			// This state will occur when user is dragging
-			if newHeight < maximumContainerHeight {
-				// Keep updating the height constraint
-				contentView.flex.height(newHeight)
-				// refresh layout
-				view.layoutIfNeeded()
+			if newHeight < highContainerHeight {
+				presentSheetWithoutAnimation(newHeight)
 			}
+			
 		case .ended:
 			// This happens when user stop drag,
 			// so we will get the last height of container
-			// Condition 1: If new height is below min, dismiss controller
+			
 			if newHeight < dismissibleHeight {
-				self.animateDismissBottomSheet()
-			}
-			else if newHeight < defaultHeight {
+				// Condition 1: If new height is below min, dismiss controller
+				self.dismissSheetWithAnimation()
+			} else if newHeight < lowContainerHeight {
 				// Condition 2: If new height is below default, animate back to default
-				animatePresentContainer(defaultHeight)
-			}
-			else if newHeight < maximumContainerHeight && isDraggingDown {
-				// Condition 3: If new height is below max and going down, set to default height
-				animatePresentContainer(secondMaxContainerHeight)
-			}
-			else if newHeight < secondMaxContainerHeight && isDraggingDown {
-				// Condition 3: If new height is below max and going down, set to default height
-				animatePresentContainer(defaultHeight)
-			}
-			else if newHeight > defaultHeight && secondMaxContainerHeight > newHeight && !isDraggingDown {
-				// Condition 4: If new height is below max and going up, set to max height at top
-				animatePresentContainer(secondMaxContainerHeight)
-			}
-			else if newHeight > secondMaxContainerHeight && !isDraggingDown {
-				animatePresentContainer(maximumContainerHeight)
+				presentSheetWithAnimation(lowContainerHeight)
+			} else if newHeight < highContainerHeight && isDraggingDown {
+				// Condition 3: If new height is below max and going down, set to medium height
+				presentSheetWithAnimation(mediumContainerHeight)
+			} else if newHeight < mediumContainerHeight && isDraggingDown {
+				// Condition 4: If new height is below max and going down, set to default height
+				presentSheetWithAnimation(lowContainerHeight)
+			} else if newHeight > lowContainerHeight && mediumContainerHeight > newHeight && !isDraggingDown {
+				// Condition 5: If new height is between low and medium and going up, set to medium height
+				presentSheetWithAnimation(mediumContainerHeight)
+			} else if newHeight > mediumContainerHeight && !isDraggingDown {
+				// Condition 6: If new height is between medium and high and going up, set to highest height
+				presentSheetWithAnimation(highContainerHeight)
 			}
 		default:
 			break
 		}
 	}
 	
-	func animateShowDimmedView() {
+	private func presentDimmedViewSmoothly() {
 		dimmedView.alpha = 0
-		UIView.animate(withDuration: 0.4) {
+		UIView.animate(withDuration: 0.2) {
 			self.dimmedView.alpha = self.maxDimmedAlpha
 		}
 	}
 	
-	private func animatePresentContainer() {
-		UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
-			self.dimmedView.alpha = 0.7
-			self.contentView.flex.height(300)
-			self.contentView.flex.markDirty()
-			self.contentView.flex.layout()
-			self.contentView.setNeedsLayout()
-			self.view.layoutIfNeeded()
-		}, completion: nil)
-	}
-	
-	func animatePresentContainer(_ height: CGFloat) {
-		UIView.animate(withDuration: 0.4) {
-			self.contentView.flex.height(height)
-			self.contentView.flex.markDirty()
-			self.contentView.flex.layout()
-			self.contentView.setNeedsLayout()
+	private func presentSheetWithAnimation(_ height: CGFloat) {
+		UIView.animate(withDuration: 0.3) {
+			self.bottomSheet.flex.height(height)
+			self.bottomSheet.flex.markDirty()
+			self.bottomSheet.flex.layout()
+			self.bottomSheet.setNeedsLayout()
 			self.view.layoutIfNeeded()
 		}
 		// Save current height
 		currentContainerHeight = height
 	}
 	
-	private func animateDismissBottomSheet() {
+	private func presentSheetWithoutAnimation(_ height: CGFloat) {
+		self.bottomSheet.flex.height(height)
+		self.bottomSheet.flex.markDirty()
+		self.bottomSheet.flex.layout()
+		self.view.layoutIfNeeded()
+	}
+	
+	private func dismissSheetWithAnimation() {
 		UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
 			self.dimmedView.alpha = 0.0
-			self.contentView.flex.height(0)
-			self.contentView.flex.markDirty()
-			self.contentView.flex.layout()
-			self.contentView.setNeedsLayout()
+			self.bottomSheet.flex.height(0)
+			self.bottomSheet.flex.markDirty()
+			self.bottomSheet.flex.layout()
+			self.bottomSheet.setNeedsLayout()
 			self.view.layoutIfNeeded()
 		}, completion: { _ in
 			self.dismiss(animated: false)
