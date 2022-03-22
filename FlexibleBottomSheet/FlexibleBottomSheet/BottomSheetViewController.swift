@@ -8,48 +8,70 @@
 import UIKit
 import PinLayout
 import FlexLayout
+import Then
+
+enum SheetHandleType {
+	case handle
+	case anchor
+	case none
+}
+
+// Percent
+enum BottomSheetHeightType: CGFloat {
+	case max = 90
+	case medium = 60
+	case min = 30
+}
+
+protocol BottomSheetPresentableListener: AnyObject {
+	func didActionDismissBottomSheet()
+}
 
 final class BottomSheetViewController: UIViewController {
-	private let dimmedView: UIView = {
-		let view = UIView()
-		view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.7)
-		view.alpha = 0.0
-		return view
-	}()
 	
-	private let bottomSheet: UIView = {
-		let view = UIView()
-		view.backgroundColor = .white
-		view.layer.cornerRadius = 10
-		view.layer.cornerCurve = .continuous
-		view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-		view.clipsToBounds = true
-		return view
-	}()
+	weak var listener: BottomSheetPresentableListener?
 	
-	private let sheetHandlerView: UIView = {
-		let view = UIView()
-		view.backgroundColor = .systemGreen
-		return view
-	}()
+	private let dimmedView = UIView().then {
+		$0.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+		$0.alpha = 0.0
+	}
 	
-	private let sheetContentView: UIView = {
-		let view = UIView()
-		view.backgroundColor = .systemRed
-		return view
-	}()
+	private let bottomSheet = UIView().then {
+		$0.backgroundColor = .white
+		$0.layer.cornerRadius = 15
+		$0.layer.cornerCurve = .continuous
+		$0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+		$0.clipsToBounds = true
+	}
 	
+	private var sheetHandlerView = UIView()
+	
+	private let sheetContentView = UIView().then {
+		$0.backgroundColor = .systemRed
+	}
+	
+	private let handleType: SheetHandleType
+	private let screenHeight = UIScreen.main.bounds.height
 	private let maxDimmedAlpha: CGFloat = 0.6
-	private let dismissibleHeight: CGFloat = 200
-	
-	private let lowContainerHeight: CGFloat = 300
-	private let mediumContainerHeight: CGFloat = UIScreen.main.bounds.height - 300
-	private let highContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
-	
 	private var currentContainerHeight: CGFloat = 300
+	
+	private lazy var minContainerHeight: CGFloat = screenHeight * (BottomSheetHeightType.min.rawValue/100)
+	private lazy var dismissibleHeight: CGFloat = minContainerHeight - 100
+	private lazy var mediumContainerHeight: CGFloat = screenHeight * (BottomSheetHeightType.medium.rawValue/100)
+	private lazy var maxContainerHeight: CGFloat = screenHeight * (BottomSheetHeightType.max.rawValue/100)
+	
+	init(handleType: SheetHandleType) {
+		self.handleType = handleType
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		configureHandleView(type: handleType)
 		configureUI()
 		configureGesture()
 	}
@@ -57,7 +79,7 @@ final class BottomSheetViewController: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		presentDimmedViewSmoothly()
-		presentSheetWithAnimation(300)
+		presentSheetWithAnimation(.min)
 	}
 	
 	override func viewDidLayoutSubviews() {
@@ -65,12 +87,23 @@ final class BottomSheetViewController: UIViewController {
 		configureLayout()
 	}
 	
+	private func configureHandleView(type: SheetHandleType) {
+		switch type {
+		case .handle:
+			sheetHandlerView = defaultHandleView()
+		case .anchor:
+			sheetHandlerView = anchorHandleView(title: "TITLE")
+		case .none:
+			break
+		}
+	}
+	
 	private func configureUI() {
 		view.addSubview(dimmedView)
 		view.addSubview(bottomSheet)
 		
 		bottomSheet.flex.direction(.column).define {
-			$0.addItem(sheetHandlerView).height(50)
+			$0.addItem(sheetHandlerView)
 			$0.addItem(sheetContentView).marginTop(15).grow(1)
 		}
 	}
@@ -89,88 +122,71 @@ final class BottomSheetViewController: UIViewController {
 	}
 	
 	@objc
-	func handlePanGesture(gesture: UIPanGestureRecognizer) {
+	private func handlePanGesture(gesture: UIPanGestureRecognizer) {
 		let translation = gesture.translation(in: view)
-		print("Pan gesture y offset: \(translation.y)")
-		
 		let isDraggingDown = translation.y > 0
-		print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
-		
-		// New height is based on value of dragging plus current container height
 		let newHeight = currentContainerHeight - translation.y
 		
-		// Handle based on gesture state
+		print("Pan gesture y offset: \(translation.y)")
+		print("Dragging direction: \(isDraggingDown ? "going down" : "going up")")
+		
 		switch gesture.state {
-		case .changed:
 			// This state will occur when user is dragging
-			if newHeight < highContainerHeight {
-				presentSheetWithoutAnimation(newHeight)
-			}
-			
-		case .ended:
+		case .changed:
+			presentSheetWithoutAnimation(newHeight)
 			// This happens when user stop drag,
-			// so we will get the last height of container
-			
-			if newHeight < dismissibleHeight {
-				// Condition 1: If new height is below min, dismiss controller
-				self.dismissSheetWithAnimation()
-			} else if newHeight < lowContainerHeight {
-				// Condition 2: If new height is below default, animate back to default
-				presentSheetWithAnimation(lowContainerHeight)
-			} else if newHeight < highContainerHeight && isDraggingDown {
-				// Condition 3: If new height is below max and going down, set to medium height
-				presentSheetWithAnimation(mediumContainerHeight)
-			} else if newHeight < mediumContainerHeight && isDraggingDown {
-				// Condition 4: If new height is below max and going down, set to default height
-				presentSheetWithAnimation(lowContainerHeight)
-			} else if newHeight > lowContainerHeight && mediumContainerHeight > newHeight && !isDraggingDown {
-				// Condition 5: If new height is between low and medium and going up, set to medium height
-				presentSheetWithAnimation(mediumContainerHeight)
-			} else if newHeight > mediumContainerHeight && !isDraggingDown {
-				// Condition 6: If new height is between medium and high and going up, set to highest height
-				presentSheetWithAnimation(highContainerHeight)
+		case .ended:
+			if newHeight < minContainerHeight {
+				isDraggingDown ? dismissSheetWithAnimation() : presentSheetWithAnimation(.min)
+			} else if newHeight < mediumContainerHeight {
+				isDraggingDown ? presentSheetWithAnimation(.min) : presentSheetWithAnimation(.medium)
+			} else {
+				isDraggingDown ? presentSheetWithAnimation(.medium) : presentSheetWithAnimation(.max)
 			}
 		default:
 			break
 		}
 	}
-	
-	private func presentDimmedViewSmoothly() {
+}
+
+private extension BottomSheetViewController {
+	func presentDimmedViewSmoothly() {
 		dimmedView.alpha = 0
 		UIView.animate(withDuration: 0.2) {
 			self.dimmedView.alpha = self.maxDimmedAlpha
 		}
 	}
 	
-	private func presentSheetWithAnimation(_ height: CGFloat) {
-		UIView.animate(withDuration: 0.3) {
-			self.bottomSheet.flex.height(height)
+	func presentSheetWithAnimation(_ height: BottomSheetHeightType) {
+		let newHeight = self.screenHeight * (height.rawValue/100)
+		UIView.animate(withDuration: 0.4) {
+			self.bottomSheet.flex.height(newHeight)
 			self.bottomSheet.flex.markDirty()
 			self.bottomSheet.flex.layout()
 			self.bottomSheet.setNeedsLayout()
 			self.view.layoutIfNeeded()
 		}
 		// Save current height
-		currentContainerHeight = height
+		currentContainerHeight = newHeight
 	}
 	
-	private func presentSheetWithoutAnimation(_ height: CGFloat) {
+	func presentSheetWithoutAnimation(_ height: CGFloat) {
 		self.bottomSheet.flex.height(height)
 		self.bottomSheet.flex.markDirty()
 		self.bottomSheet.flex.layout()
 		self.view.layoutIfNeeded()
 	}
 	
-	private func dismissSheetWithAnimation() {
-		UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
+	func dismissSheetWithAnimation() {
+		UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseIn, animations: {
 			self.dimmedView.alpha = 0.0
 			self.bottomSheet.flex.height(0)
 			self.bottomSheet.flex.markDirty()
 			self.bottomSheet.flex.layout()
 			self.bottomSheet.setNeedsLayout()
 			self.view.layoutIfNeeded()
-		}, completion: { _ in
-			self.dismiss(animated: false)
+		}, completion: { [weak self] _ in
+			self?.dismiss(animated: false)
 		})
 	}
 }

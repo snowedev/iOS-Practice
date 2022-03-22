@@ -15,6 +15,9 @@
 		E81AB9CE27E75F4600C8B48B /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E81AB9CD27E75F4600C8B48B /* PinLayout */; };
 		E81AB9D127E75F7B00C8B48B /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = E81AB9D027E75F7B00C8B48B /* FlexLayout */; };
 		E81AB9D327E7603300C8B48B /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81AB9D227E7603300C8B48B /* BottomSheetViewController.swift */; };
+		E8F8A5B627E9D55D00BC6E09 /* defaultHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F8A5B527E9D55D00BC6E09 /* defaultHandleView.swift */; };
+		E8F8A5B927E9D56900BC6E09 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = E8F8A5B827E9D56900BC6E09 /* Then */; };
+		E8F8A5BB27E9D57400BC6E09 /* anchorHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F8A5BA27E9D57400BC6E09 /* anchorHandleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,8 @@
 		E81AB9C427E75E3900C8B48B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E81AB9C627E75E3900C8B48B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E81AB9D227E7603300C8B48B /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		E8F8A5B527E9D55D00BC6E09 /* defaultHandleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultHandleView.swift; sourceTree = "<group>"; };
+		E8F8A5BA27E9D57400BC6E09 /* anchorHandleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = anchorHandleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +39,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E81AB9CE27E75F4600C8B48B /* PinLayout in Frameworks */,
+				E8F8A5B927E9D56900BC6E09 /* Then in Frameworks */,
 				E81AB9D127E75F7B00C8B48B /* FlexLayout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +66,7 @@
 		E81AB9B727E75E3800C8B48B /* FlexibleBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
+				E8F8A5B427E9D54600BC6E09 /* HandleViews */,
 				E81AB9B827E75E3800C8B48B /* AppDelegate.swift */,
 				E81AB9BA27E75E3800C8B48B /* SceneDelegate.swift */,
 				E81AB9BC27E75E3800C8B48B /* ViewController.swift */,
@@ -69,6 +76,15 @@
 				E81AB9C627E75E3900C8B48B /* Info.plist */,
 			);
 			path = FlexibleBottomSheet;
+			sourceTree = "<group>";
+		};
+		E8F8A5B427E9D54600BC6E09 /* HandleViews */ = {
+			isa = PBXGroup;
+			children = (
+				E8F8A5B527E9D55D00BC6E09 /* defaultHandleView.swift */,
+				E8F8A5BA27E9D57400BC6E09 /* anchorHandleView.swift */,
+			);
+			path = HandleViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +106,7 @@
 			packageProductDependencies = (
 				E81AB9CD27E75F4600C8B48B /* PinLayout */,
 				E81AB9D027E75F7B00C8B48B /* FlexLayout */,
+				E8F8A5B827E9D56900BC6E09 /* Then */,
 			);
 			productName = FlexibleBottomSheet;
 			productReference = E81AB9B527E75E3800C8B48B /* FlexibleBottomSheet.app */;
@@ -122,6 +139,7 @@
 			packageReferences = (
 				E81AB9CC27E75F4600C8B48B /* XCRemoteSwiftPackageReference "PinLayout" */,
 				E81AB9CF27E75F7B00C8B48B /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				E8F8A5B727E9D56900BC6E09 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = E81AB9B627E75E3800C8B48B /* Products */;
 			projectDirPath = "";
@@ -149,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F8A5B627E9D55D00BC6E09 /* defaultHandleView.swift in Sources */,
 				E81AB9BD27E75E3800C8B48B /* ViewController.swift in Sources */,
 				E81AB9B927E75E3800C8B48B /* AppDelegate.swift in Sources */,
+				E8F8A5BB27E9D57400BC6E09 /* anchorHandleView.swift in Sources */,
 				E81AB9BB27E75E3800C8B48B /* SceneDelegate.swift in Sources */,
 				E81AB9D327E7603300C8B48B /* BottomSheetViewController.swift in Sources */,
 			);
@@ -385,6 +405,14 @@
 				kind = branch;
 			};
 		};
+		E8F8A5B727E9D56900BC6E09 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -397,6 +425,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E81AB9CF27E75F7B00C8B48B /* XCRemoteSwiftPackageReference "FlexLayout" */;
 			productName = FlexLayout;
+		};
+		E8F8A5B827E9D56900BC6E09 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8F8A5B727E9D56900BC6E09 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

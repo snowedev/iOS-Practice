@@ -39,9 +39,8 @@ class ViewController: UIViewController {
 	
 	@objc
 	func showBottomSheet() {
-		let bottomSheetVC = BottomSheetViewController()
+		let bottomSheetVC = BottomSheetViewController(handleType: .handle)
 		bottomSheetVC.modalPresentationStyle = .overFullScreen
 		self.present(bottomSheetVC, animated: false, completion: nil)
 	}
 }
-
